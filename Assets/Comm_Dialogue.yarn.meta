@@ -1,0 +1,61 @@
+fileFormatVersion: 2
+guid: 0674c8b537054432f8016aaf1b316b6c
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
+  baseLanguageID: en-US
+  stringIDs:
+  - Comm_Dialogue-pickup_bot-0
+  - Comm_Dialogue-pickup_bot-1
+  - Comm_Dialogue-pickup_bot-2
+  - Comm_Dialogue-pickup_bot-3
+  - Comm_Dialogue-pickup_bot-4
+  - Comm_Dialogue-shovel_bot-5
+  - Comm_Dialogue-shovel_bot-6
+  - Comm_Dialogue-shovel_bot-7
+  - Comm_Dialogue-shovel_bot-8
+  - Comm_Dialogue-shovel_bot-9
+  - Comm_Dialogue-assemble-10
+  - Comm_Dialogue-assemble-11
+  - Comm_Dialogue-seeds-12
+  - Comm_Dialogue-seeds-13
+  - Comm_Dialogue-seeds-14
+  - Comm_Dialogue-plants-15
+  - Comm_Dialogue-plants-16
+  - Comm_Dialogue-plants-17
+  - Comm_Dialogue-finish_dialogue-18
+  - Comm_Dialogue-finish_dialogue-19
+  - Comm_Dialogue-finish_dialogue-20
+  - Comm_Dialogue-trash-21
+  - Comm_Dialogue-trash-22
+  - Comm_Dialogue-ash-23
+  - Comm_Dialogue-ash-24
+  - Comm_Dialogue-Start-25
+  - Comm_Dialogue-Start-26
+  - Comm_Dialogue-Start-27
+  - Comm_Dialogue-story-28
+  - Comm_Dialogue-story-29
+  - Comm_Dialogue-story-30
+  - Comm_Dialogue-why_debris-31
+  - Comm_Dialogue-why_debris-32
+  - Comm_Dialogue-why_debris-33
+  - Comm_Dialogue-life_before-34
+  - Comm_Dialogue-life_before-35
+  - Comm_Dialogue-life_before-36
+  - Comm_Dialogue-life_before-37
+  - Comm_Dialogue-life_before-38
+  - Comm_Dialogue-continue-39
+  - Comm_Dialogue-continue-40
+  - Comm_Dialogue-continue-41
+  - Comm_Dialogue-continue-42
+  compilationStatus: 1
+  isSuccesfullyCompiled: 1
+  compilationErrorMessage: 
+  baseLanguage: {fileID: 7128917941130120860, guid: 0674c8b537054432f8016aaf1b316b6c,
+    type: 3}
+  localizations: []
