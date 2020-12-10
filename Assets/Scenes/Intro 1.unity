@@ -753,6 +753,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 469352578311123785, guid: cfa49cfa3439545dc924afe55535e3e3,
+        type: 3}
+      propertyPath: rocketLandingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 50ff68a204c73104e845a4894094738e, type: 3}
+    - target: {fileID: 469352578311123785, guid: cfa49cfa3439545dc924afe55535e3e3,
+        type: 3}
+      propertyPath: rocketDoorOpenSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ed052b9abaa07f8418c618ca29093d02, type: 3}
     - target: {fileID: 6295511753144233256, guid: cfa49cfa3439545dc924afe55535e3e3,
         type: 3}
       propertyPath: m_Name
