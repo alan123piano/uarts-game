@@ -11,19 +11,10 @@ public class TaskPanelBuilder : MonoBehaviour
     public GameObject descUIPrefab;
     public GameObject stepsUIPrefab;
 
-    private List<Task> taskList;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        taskList = PlayerVariables.tasks;
-        StartCoroutine(refreshTasks());
-    }
-
     // Update is called once per frame
     void Update()
     {
-      
+        UpdateTaskPanel();
     }
 
     private void UpdateTaskPanel()
@@ -34,7 +25,7 @@ public class TaskPanelBuilder : MonoBehaviour
 
     private void ClearTaskPanel()
     {
-        foreach(Transform child in descUIContainer)
+        foreach (Transform child in descUIContainer)
         {
             Destroy(child.gameObject);
         }
@@ -44,32 +35,21 @@ public class TaskPanelBuilder : MonoBehaviour
         }
     }
 
-    IEnumerator refreshTasks() //refreshes task lsit every second to not overload program
-    {
-        while(true)
-        {
-            taskList = PlayerVariables.tasks;
-            UpdateTaskPanel();
-            yield return new WaitForSeconds(1);
-        }
-    }
-
     private void PopulateTaskPanel()
     {
-        print("Debug Log: " + taskList[1].progress);
-        for(int i = 0; i < taskList.Count; i++)
+        //print("Debug Log: " + taskList[1].progress);
+        List<Task> taskList = PlayerVariables.tasks;
+        foreach (Task task in PlayerVariables.tasks)
         {
-            Task task = taskList[i];
             if (task.visible)
             {
                 GameObject label = Instantiate(descUIPrefab, descUIContainer);
                 GameObject progress = Instantiate(stepsUIPrefab, stepsUIContainer);
-                RectTransform rt = label.GetComponent<RectTransform>();
                 Text descText = label.GetComponent<Text>();
                 Text progText = progress.GetComponent<Text>();
-                descText.text = taskList[i].desc;
-                progText.text = taskList[i].progress.ToString() + "/" + taskList[i].steps.ToString();
-                if (taskList[i].progress >= taskList[i].steps)
+                descText.text = task.desc;
+                progText.text = task.progress.ToString() + "/" + task.steps.ToString();
+                if (task.progress >= task.steps)
                 {
                     descText.color = new Color(0, 1, 0);
                     progText.color = new Color(0, 1, 0);
