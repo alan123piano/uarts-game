@@ -9,33 +9,52 @@ public class landerScript : MonoBehaviour
     public DialogueRunner dialoguerunner;
     public string startnode;
     public GameObject shipmentPanel;
-    private int currentTaskSet = 1;
-    private List<Task> savedTasks1 = new List<Task>(){
-        new Task("solar1", "Contruct solar panel", 1),
-        new Task("clearArea", "Clear general area of dust", 20),
-        new Task("placeBox", "Place a collection box", 1) };
-    private List<Task> savedTasks2 = new List<Task>(){
-        new Task("shelter1", "Construct plant shelter", 1),
-        new Task("testSoil1", "Test soil samples", 5)
+
+    private int currentTaskSet = 0;
+    private List<List<string>> taskSets = new List<List<string>>{
+        new List<string>(){"solar1", "clearArea", "placeBox"},
+        new List<string>(){"shelter1", "testSoil1"}
     };
 
     private void Start()
     {
-        PlayerVariables.tasks = savedTasks1;
+
     }
 
     // Start is called before the first frame update
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (currentTaskSet == 1 && currentTasksCompleted(savedTasks1) == true)
+        if (currentTaskSet >= taskSets.Count)
         {
-            currentTaskSet += 1;
-            int index = 0;
-            foreach (Task task in savedTasks2)
+            // we finished all of our tasks already
+            return;
+        }
+        List<string> taskSet = taskSets[currentTaskSet];
+        if (currentTasksCompleted(taskSet))
+        {
+            foreach (string taskName in taskSet)
             {
-                PlayerVariables.tasks[index] = task;
-                index += 1;
+                Task task = PlayerVariables.getTaskByName(taskName);
+                if (task != null)
+                {
+                    task.visible = false;
+                }
+            }
+            currentTaskSet += 1;
+            if (currentTaskSet >= taskSets.Count)
+            {
+                // we finished all of our tasks, yippee!
+                return;
+            }
+            List<string> newTaskSet = taskSets[currentTaskSet];
+            foreach (string taskName in newTaskSet)
+            {
+                Task task = PlayerVariables.getTaskByName(taskName);
+                if (task != null)
+                {
+                    task.visible = true;
+                }
             }
         }
     }
@@ -54,13 +73,17 @@ public class landerScript : MonoBehaviour
         shipmentPanel.SetActive(false);
     }
 
-    private bool currentTasksCompleted(List<Task> taskList)
+    private bool currentTasksCompleted(List<string> taskSet)
     {
-        foreach(Task task in taskList)
+        foreach (string taskName in taskSet)
         {
-            if (task.progress < task.steps)
+            Task task = PlayerVariables.getTaskByName(taskName);
+            if (task != null)
             {
-                return false;
+                if (task.progress < task.steps)
+                {
+                    return false;
+                }
             }
         }
         return true;

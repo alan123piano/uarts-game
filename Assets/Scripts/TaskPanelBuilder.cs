@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryPanelBuilder : MonoBehaviour
+public class TaskPanelBuilder : MonoBehaviour
 {
     public GameObject mainframe;
     public Transform descUIContainer;
@@ -59,17 +59,21 @@ public class InventoryPanelBuilder : MonoBehaviour
         print("Debug Log: " + taskList[1].progress);
         for(int i = 0; i < taskList.Count; i++)
         {
-            GameObject label = Instantiate(descUIPrefab, descUIContainer);
-            GameObject progress = Instantiate(stepsUIPrefab, stepsUIContainer);
-            RectTransform rt = label.GetComponent<RectTransform>();
-            Text descText = label.GetComponent<Text>();
-            Text progText = progress.GetComponent<Text>();
-            descText.text = taskList[i].desc;
-            progText.text = taskList[i].progress.ToString() + "/" + taskList[i].steps.ToString();
-            if (taskList[i].progress >= taskList[i].steps)
+            Task task = taskList[i];
+            if (task.visible)
             {
-                descText.color = new Color(0, 1, 0);
-                progText.color = new Color(0, 1, 0);
+                GameObject label = Instantiate(descUIPrefab, descUIContainer);
+                GameObject progress = Instantiate(stepsUIPrefab, stepsUIContainer);
+                RectTransform rt = label.GetComponent<RectTransform>();
+                Text descText = label.GetComponent<Text>();
+                Text progText = progress.GetComponent<Text>();
+                descText.text = taskList[i].desc;
+                progText.text = taskList[i].progress.ToString() + "/" + taskList[i].steps.ToString();
+                if (taskList[i].progress >= taskList[i].steps)
+                {
+                    descText.color = new Color(0, 1, 0);
+                    progText.color = new Color(0, 1, 0);
+                }
             }
         }
     }

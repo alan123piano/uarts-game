@@ -87,7 +87,7 @@ public class robotMoveScript : MonoBehaviour
         }
         selectItemPopUp.SetActive(false);
         robotMoveScript.isMovingToPosition = true;
-        if (chosenGameObject.GetComponent<isHoldable>() && isGrabbing)
+        if (chosenGameObject && chosenGameObject.GetComponent<isHoldable>() && isGrabbing)
         {
             print("You are already grabbing something!");
             isSeekingPosition = true;
@@ -95,7 +95,7 @@ public class robotMoveScript : MonoBehaviour
             chosenGameObject = null;
             StartCoroutine(findPos());
         }
-        if (chosenGameObject.GetComponent<dropOff>() && isGrabbing == false)
+        if (chosenGameObject && chosenGameObject.GetComponent<dropOff>() && isGrabbing == false)
         {
             print("You have nothing to drop off!");
             isSeekingPosition = true;
@@ -120,7 +120,10 @@ public class robotMoveScript : MonoBehaviour
 
     private void grab()
     {
-        GetComponent<canHoldItem>().pickUp(wantedCollectObject);
+        if (wantedCollectObject)
+        {
+            GetComponent<canHoldItem>().pickUp(wantedCollectObject);
+        }
     }
 
     public static void dropOff()
