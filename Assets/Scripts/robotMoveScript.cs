@@ -49,7 +49,6 @@ public class robotMoveScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(isGrabbing);
         if (chosenGameObject != null && isMovingToPosition)
         {
             Vector2 pos = new Vector2(chosenGameObject.transform.position.x, chosenGameObject.transform.position.y);
