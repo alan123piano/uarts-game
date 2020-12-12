@@ -66,26 +66,13 @@ public class landerScript : MonoBehaviour
 
     private bool currentTasksCompleted(List<Task> taskList)
     {
-        List<bool> listOfCompletions = new List<bool>();
-        int index = 0;
         foreach(Task task in taskList)
         {
-            if (task.progress >= task.steps)
+            if (task.progress < task.steps)
             {
-                listOfCompletions[index] = true;
+                return false;
             }
-            else
-            {
-                listOfCompletions[index] = false;
-            }
-            index += 1;
         }
-        if (!listOfCompletions.Contains(false)){
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return true;
     }
 }
