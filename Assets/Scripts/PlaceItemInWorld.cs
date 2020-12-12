@@ -43,7 +43,7 @@ public class PlaceItemInWorld : MonoBehaviour
         this.isPlacing = true;
         this.prefab = Item.GetPrefab(itemName);
         this.ghostPrefab = Instantiate(prefab);
-        Destroy(ghostPrefab.GetComponent<highlightScript>());
+        InitGhostPrefab();
         UpdateGhostPrefab();
     }
 
@@ -80,14 +80,30 @@ public class PlaceItemInWorld : MonoBehaviour
         return pos;
     }
 
+    // PRECONDITIONS: [ghostPrefab != null]
+    private void InitGhostPrefab()
+    {
+        highlightScript gphs = ghostPrefab.GetComponent<highlightScript>();
+        if (gphs != null)
+        {
+            Destroy(gphs);
+        }
+        foreach (Collider2D collider in ghostPrefab.GetComponentsInChildren(typeof(Collider2D)))
+        {
+            collider.isTrigger = true;
+        }
+    }
+
     // PRECONDITIONS: [isPlacing], [ghostPrefab != null]
     private bool GhostPrefabHasCollision()
     {
-        foreach (Collider2D collider in gameObject.GetComponentsInChildren(typeof(Collider2D)))
+        foreach (Collider2D collider in ghostPrefab.GetComponentsInChildren(typeof(Collider2D)))
         {
             Collider2D[] results = new Collider2D[1];
-            collider.OverlapCollider(new ContactFilter2D().NoFilter(), results);
-            if (results[0] != null)
+            ContactFilter2D cFilter = new ContactFilter2D();
+            cFilter.minDepth = 0;
+            int amount = collider.OverlapCollider(cFilter, results);
+            if (amount > 0)
             {
                 return true;
             }
