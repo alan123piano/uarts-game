@@ -16,17 +16,10 @@ public class InventoryPanelBuilder : MonoBehaviour
     {
         myTransform = gameObject.GetComponent<Transform>();
         piiw = mainframe.GetComponent<PlaceItemInWorld>();
-        PlayerVariables.addToInventory(new Item("george", true));
         UpdateInvPanel();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //UpdateInvPanel();
-    }
-
-    private void UpdateInvPanel()
+    public void UpdateInvPanel()
     {
         ClearInvPanel();
         PopulateInvPanel();
@@ -51,7 +44,7 @@ public class InventoryPanelBuilder : MonoBehaviour
                 itemUI.GetComponent<Text>().text = item.name;
                 Button btn = itemUI.GetComponent<Transform>().Find("Button").GetComponent<Button>() as Button;
                 btn.onClick.AddListener(() => {
-                    Debug.Log("hi");
+                    piiw.Begin(item.name);
                 });
             }
             else

@@ -21,7 +21,7 @@ public class chargeRate : MonoBehaviour
     {
         while (true)
         {
-            energyBar.GetComponent<energyScript>().changeEnergy(8);
+            //energyBar.GetComponent<energyScript>().changeEnergy(8);
             yield return new WaitForSeconds(30);
         }
         

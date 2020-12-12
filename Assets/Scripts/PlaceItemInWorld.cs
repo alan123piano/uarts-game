@@ -28,6 +28,7 @@ public class PlaceItemInWorld : MonoBehaviour
         this.isPlacing = true;
         this.prefab = Item.GetPrefab(itemName);
         this.ghostPrefab = Instantiate(prefab);
+        Destroy(ghostPrefab.GetComponent<highlightScript>());
         UpdateGhostPrefab();
     }
 
@@ -57,7 +58,11 @@ public class PlaceItemInWorld : MonoBehaviour
 
     private Vector3 MousePosInWorld()
     {
-        return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        pos.x = Mathf.Round(pos.x);
+        pos.y = Mathf.Round(pos.y);
+        pos.z = 0;
+        return pos;
     }
 
     // PRECONDITIONS: [isPlacing], [ghostPrefab != null]

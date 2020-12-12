@@ -38,6 +38,7 @@ public static class PlayerVariables
     {
         inventory.Add(item);
         inventory.Sort(Item.Compare);
+        updateInventoryUI();
     }
 
     // returns null if item doesn't exist in inv
@@ -64,6 +65,7 @@ public static class PlayerVariables
         bool removed = inventory.Remove(item);
         if (removed)
         {
+            updateInventoryUI();
             return item;
         }
         else
@@ -71,5 +73,15 @@ public static class PlayerVariables
             Debug.LogError("PlayerVariables is broken. >:(");
             return null;
         }
+    }
+
+    private static InventoryPanelUpdateSignal ipusCache;
+    private static void updateInventoryUI()
+    {
+        if (ipusCache == null)
+        {
+            ipusCache = GameObject.Find("MAINFRAME").GetComponent<InventoryPanelUpdateSignal>();
+        }
+        ipusCache.SendUpdateSignal();
     }
 }

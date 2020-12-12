@@ -24,7 +24,7 @@ public class Item
     // returns null if doesn't exist in Resources/Items/...
     public static GameObject GetPrefab(string itemName)
     {
-        if (prefabDict[itemName] != null)
+        if (prefabDict.ContainsKey(itemName))
         {
             return prefabDict[itemName];
         }
