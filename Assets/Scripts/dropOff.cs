@@ -36,7 +36,7 @@ public class dropOff : MonoBehaviour
             robotMoveScript.isGrabbing = false;
             robotMoveScript.isMovingToPosition = false;
             robotMoveScript.dropOff();
-            PlayerVariables.getTaskByName("solar1").progress += 1;
+            PlayerVariables.addTaskProgress("solar1", 1);
         }
     }
 }

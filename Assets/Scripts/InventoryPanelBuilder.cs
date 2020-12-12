@@ -6,21 +6,24 @@ using UnityEngine.UI;
 public class InventoryPanelBuilder : MonoBehaviour
 {
     public GameObject mainframe;
-
     public GameObject textUIPrefab;
     public GameObject placeableTextUIPrefab;
 
     private Transform myTransform;
+    private PlaceItemInWorld piiw;
 
     void Start()
     {
         myTransform = gameObject.GetComponent<Transform>();
+        piiw = mainframe.GetComponent<PlaceItemInWorld>();
+        PlayerVariables.addToInventory(new Item("george", true));
+        UpdateInvPanel();
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateInvPanel();
+        //UpdateInvPanel();
     }
 
     private void UpdateInvPanel()
@@ -46,6 +49,10 @@ public class InventoryPanelBuilder : MonoBehaviour
             if (item.placeable){
                 GameObject itemUI = Instantiate(placeableTextUIPrefab, myTransform);
                 itemUI.GetComponent<Text>().text = item.name;
+                Button btn = itemUI.GetComponent<Transform>().Find("Button").GetComponent<Button>() as Button;
+                btn.onClick.AddListener(() => {
+                    Debug.Log("hi");
+                });
             }
             else
             {

@@ -24,7 +24,6 @@ public class energyScript : MonoBehaviour
         {
             energy = slider.maxValue;
         }
-        print("here");
         
         //slider.value = energy;
     }
