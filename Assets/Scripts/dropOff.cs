@@ -32,11 +32,7 @@ public class dropOff : MonoBehaviour
     {
         if (robotMoveScript.isMovingToPosition == true && robotMoveScript.isGrabbing == true)
         {
-            robotMoveScript.isMovingToPosition = false;
-            robotMoveScript.isGrabbing = false;
-            robotMoveScript.isMovingToPosition = false;
             robotMoveScript.dropOff();
-            PlayerVariables.getTaskByName("solar1").progress += 1;
         }
     }
 }

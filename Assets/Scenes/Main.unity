@@ -11141,8 +11141,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -650.19995, y: -245.59998}
-  m_SizeDelta: {x: 97.07654, y: 33.20117}
+  m_AnchoredPosition: {x: -650.19995, y: -251.26}
+  m_SizeDelta: {x: 97.07654, y: 44.525826}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &975884948
 MonoBehaviour:
@@ -12151,7 +12151,7 @@ PrefabInstance:
     - target: {fileID: 8769508888003136589, guid: 83c41b8e2138b4b66abbb00114e532dd,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 197.01025
+      value: 197.01074
       objectReference: {fileID: 0}
     - target: {fileID: 8769508888003136589, guid: 83c41b8e2138b4b66abbb00114e532dd,
         type: 3}
@@ -12743,6 +12743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 714fe1e73aef94dbca18946a107a5ee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dirtChecker: {fileID: 93279144}
   robotPopUp: {fileID: 483905742}
   highlight: {fileID: 1067891723}
   selectItemPopUp: {fileID: 975884946}
@@ -15349,7 +15350,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Select Item
+  m_Text: "Select Item /\n Location"
 --- !u!222 &1594771453
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19252,7 +19253,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 197.01025, y: -622.3296}
+  m_AnchoredPosition: {x: 197.01074, y: -622.3296}
   m_SizeDelta: {x: 360, y: 378.65698}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &8769508887410129863 stripped
@@ -19311,3 +19312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e87626d7ac2b3449bb2fdba71423056b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainframe: {fileID: 1515856435}
+  textUIPrefab: {fileID: 7491614118432235499, guid: 8c8a8ad30b4764720a0eb38aef7d38b7,
+    type: 3}
+  placeableTextUIPrefab: {fileID: 2139078896611875646, guid: 295556391d790484f945d734bbe99aea,
+    type: 3}

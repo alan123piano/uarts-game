@@ -7,6 +7,7 @@ public class robotMoveScript : MonoBehaviour
 {
     private Rigidbody2D rb;
     private SpriteRenderer spriteRender;
+    private Camera cam;
 
     public GameObject dirtChecker;
     public GameObject robotPopUp;
@@ -26,7 +27,6 @@ public class robotMoveScript : MonoBehaviour
     private Vector2 speed;
     // ---- Button:
     private Button pickUpButton;
-    private Button deliverButton;
 
     private Button dirtSampleButton;
     // ----
@@ -34,6 +34,7 @@ public class robotMoveScript : MonoBehaviour
     private RectTransform popUpRect;
     void Start()
     {
+        cam = Camera.main;
         rb = GetComponent<Rigidbody2D>();
         spriteRender = GetComponent<SpriteRenderer>();
         selectItemPopUpRect = selectItemPopUp.GetComponent<RectTransform>();
@@ -48,23 +49,34 @@ public class robotMoveScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print(isGrabbing);
         if (chosenGameObject != null && isMovingToPosition)
         {
             Vector2 pos = new Vector2(chosenGameObject.transform.position.x, chosenGameObject.transform.position.y);
             rb.position = Vector2.SmoothDamp(rb.position, pos, ref speed, .5f, 3);
         }
+        if (isMovingToPosition && chosenGameObject == null){
+            rb.position = Vector2.SmoothDamp(rb.position, wantedPosition, ref speed, .5f, 3);
+        }
         if (isGrabbing)
         {
             grab();
         }
-        if (chosenGameObject != null && chosenGameObject.transform.position.x > Screen.width / 2)
+        if (chosenGameObject != null && chosenGameObject.transform.position.x > transform.position.x)
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
-        if (chosenGameObject != null && chosenGameObject.transform.position.x < Screen.width / 2)
+        if (chosenGameObject != null && chosenGameObject.transform.position.x < transform.position.x)
         {
             transform.localScale = new Vector3(-1, 1, 1);
-
+        }
+        if(rb.velocity.x > 0){transform.localScale = new Vector3(1, 1, 1);}
+        if(rb.velocity.x < 0){transform.localScale = new Vector3(-1, 1, 1);}
+        if(isGrabbing){
+            //dirtSampleButton.interactible = false;
+        }
+        else{
+            //dirtSampleButton.interactible = true;
         }
         //if (PlayerVariables.inventory) //this is going to be if the inventroy has the dirt sample tester in it.
     }
@@ -72,14 +84,12 @@ public class robotMoveScript : MonoBehaviour
     public void findpos()
     {
         isSeekingPosition = true;
-        print("orgig func");
         StartCoroutine(findPos());
     }
 
     IEnumerator findPos()
     {
         robotPopUp.SetActive(false);
-        print(robotPopUp.name);
         selectItemPopUp.SetActive(true);
         while(isSeekingPosition)
         {
@@ -134,22 +144,44 @@ public class robotMoveScript : MonoBehaviour
 
     public static void dropOff()
     {
+        print("in dropoff");
+        isMovingToPosition = false;
+        isGrabbing = false;
         wantedCollectObject.SetActive(false);
         wantedCollectObject = null;
         wantedDropObject = null;
-        
+        PlayerVariables.getTaskByName("solar1").progress += 1;
     }
     public void GetDirtSample(){
-        dirtChecker.SetActive(true);
-        GetComponent<canHoldItem>().pickUp(dirtChecker);
-        StartCoroutine(LookingForDirt());
+        if (isGrabbing == false){
+            dirtChecker.SetActive(true);
+            GetComponent<canHoldItem>().pickUp(dirtChecker);
+            StartCoroutine(LookingForDirt());
+        }
+        else{
+            print("You hace sm in that hand o yours!");
+        }
     }
 
     IEnumerator LookingForDirt(){
         bool isLooking = true;
+        selectItemPopUp.SetActive(true);
         while(isLooking){
-            
+            selectItemPopUpRect.position = new Vector2(Input.mousePosition.x + 50, Input.mousePosition.y + 20);
+            if (Input.GetMouseButtonDown(1))
+            {
+                isLooking = false;
+                selectItemPopUp.SetActive(false);
+            }
+            if(Input.GetMouseButton(0)){
+                isLooking = false;
+                wantedPosition = new Vector2(cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0)).x, cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0)).y);
+                isMovingToPosition = true;
+            }
+            yield return null;
         }
+        
+
     }
     private void OnMouseOver()
     {
