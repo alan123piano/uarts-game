@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class PlayerVariables
 {
-    public static List<string> inventory = new List<string>();
+    
     public static List<Task> tasks = new List<Task> {
         new Task("solar1", "Contruct solar panel", 1, true),
         new Task("clearAreaOfDust", "Clear general area of dust", 20, true),
@@ -12,6 +12,12 @@ public static class PlayerVariables
         new Task("shelter1", "Construct plant shelter", 1, false),
         new Task("testSoil1", "Test soil samples", 5, false)
     };
+    public static List<Item> inventory = new List<Item> {
+        new Item("solarPanel", true, solarPanel),
+        new Item("storageBox", true, storageBox),
+        new Item("shovelRobot", true, shovelRobot)
+    };
+    
 
     public static Task getTaskByName(string name)
     {

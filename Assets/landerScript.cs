@@ -15,6 +15,9 @@ public class landerScript : MonoBehaviour
         new List<string>(){"solar1", "clearArea", "placeBox"},
         new List<string>(){"shelter1", "testSoil1"}
     };
+    public GameObject solarPanel;
+    public GameObject storageBox;
+    public GameObject shovelRobot;
 
     private void Start()
     {
