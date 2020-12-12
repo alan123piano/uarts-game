@@ -7,6 +7,8 @@ public class robotMoveScript : MonoBehaviour
 {
     private Rigidbody2D rb;
     private SpriteRenderer spriteRender;
+
+    public GameObject dirtChecker;
     public GameObject robotPopUp;
     public GameObject highlight;
     public GameObject selectItemPopUp;
@@ -25,6 +27,8 @@ public class robotMoveScript : MonoBehaviour
     // ---- Button:
     private Button pickUpButton;
     private Button deliverButton;
+
+    private Button dirtSampleButton;
     // ----
     public GameObject popUpObject;
     private RectTransform popUpRect;
@@ -36,6 +40,7 @@ public class robotMoveScript : MonoBehaviour
         speed = new Vector2(0, 0);
         // ---- Button:
         pickUpButton = GameObject.Find("pickUpButton").GetComponent<Button>();
+        dirtSampleButton = GameObject.Find("dirtSampleButton").GetComponent<Button>();
         popUpRect = popUpObject.GetComponent<RectTransform>();
         popUpObject.SetActive(false);
     }
@@ -61,6 +66,7 @@ public class robotMoveScript : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
 
         }
+        //if (PlayerVariables.inventory) //this is going to be if the inventroy has the dirt sample tester in it.
     }
 
     public void findpos()
@@ -133,7 +139,18 @@ public class robotMoveScript : MonoBehaviour
         wantedDropObject = null;
         
     }
+    public void GetDirtSample(){
+        dirtChecker.SetActive(true);
+        GetComponent<canHoldItem>().pickUp(dirtChecker);
+        StartCoroutine(LookingForDirt());
+    }
 
+    IEnumerator LookingForDirt(){
+        bool isLooking = true;
+        while(isLooking){
+            
+        }
+    }
     private void OnMouseOver()
     {
         
