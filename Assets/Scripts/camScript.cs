@@ -6,7 +6,7 @@ public class camScript : MonoBehaviour
 {
     public GameObject followGameObject;
     private Vector3 targetPosition;
-    private int[,] camBounds = { { -3, 35 }, { -5, 25 } }; // low x, high x, low y, high y
+    private int[,] camBounds = { { -4, 48 }, { -5, 38 } }; // low x, high x, low y, high y
 
     private void Start()
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryPanelBuilder : MonoBehaviour
+public class inventoryPanelBuilder : MonoBehaviour
 {
     public GameObject mainframe;
     public GameObject textUIPrefab;
