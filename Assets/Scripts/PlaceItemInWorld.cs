@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlaceItemInWorld : MonoBehaviour
 {
     public GameObject stopPlacingButton;
 
+    private string itemName;
     private bool isPlacing = false;
     private GameObject prefab;
     private GameObject ghostPrefab;
@@ -15,11 +17,24 @@ public class PlaceItemInWorld : MonoBehaviour
         if (isPlacing && ghostPrefab != null)
         {
             UpdateGhostPrefab();
+            if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+            {
+                Item removed = PlayerVariables.removeFromInventory(itemName);
+                if (removed != null)
+                {
+                    Finish();
+                }
+                else
+                {
+                    Stop();
+                }
+            }
         }
     }
 
     public void Begin(string itemName)
     {
+        this.itemName = itemName;
         stopPlacingButton.SetActive(true);
         if (ghostPrefab != null)
         {

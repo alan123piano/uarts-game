@@ -8,7 +8,6 @@ public class landerScript : MonoBehaviour
     public GameObject mainframe;
     public DialogueRunner dialoguerunner;
     public string startnode;
-    public GameObject shipmentPanel;
 
     private int currentTaskSet = 0;
     private List<List<string>> taskSets = new List<List<string>>{
@@ -69,11 +68,10 @@ public class landerScript : MonoBehaviour
         {
             dialoguerunner.StartDialogue(startnode);
         }
-        shipmentPanel.SetActive(true);
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
-        shipmentPanel.SetActive(false);
     }
 
     private bool currentTasksCompleted(List<string> taskSet)

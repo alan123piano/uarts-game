@@ -31,7 +31,6 @@ public class InventoryPanelBuilder : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-
     }
 
     private void PopulateInvPanel()
