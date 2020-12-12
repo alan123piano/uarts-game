@@ -13,9 +13,6 @@ public static class PlayerVariables
         new Task("testSoil1", "Test soil samples", 5, false)
     };
     public static List<Item> inventory = new List<Item> {
-        new Item("solarPanel", true, solarPanel),
-        new Item("storageBox", true, storageBox),
-        new Item("shovelRobot", true, shovelRobot)
     };
     
 

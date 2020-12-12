@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class inventoryPanelBuilder : MonoBehaviour
+public class InventoryPanelBuilder : MonoBehaviour
 {
     public GameObject mainframe;
 
@@ -15,7 +15,7 @@ public class inventoryPanelBuilder : MonoBehaviour
     void Start()
     {
         inventory = PlayerVariables.inventory;
-        StartCoroutine(refreshTasks());
+        StartCoroutine(refreshInv());
     }
 
     // Update is called once per frame
