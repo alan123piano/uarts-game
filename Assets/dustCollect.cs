@@ -20,6 +20,6 @@ public class dustCollect : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         gameObject.SetActive(false);
-        mainframe.GetComponent<PlayerVariables>().dustCollected += 1;
+        PlayerVariables.dustCollected += 1;
     }
 }

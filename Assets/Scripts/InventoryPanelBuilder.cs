@@ -16,7 +16,7 @@ public class InventoryPanelBuilder : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        taskList = mainframe.GetComponent<PlayerVariables>().tasks;
+        taskList = PlayerVariables.tasks;
         StartCoroutine(refreshTasks());
     }
 
@@ -48,7 +48,7 @@ public class InventoryPanelBuilder : MonoBehaviour
     {
         while(true)
         {
-            taskList = mainframe.GetComponent<PlayerVariables>().tasks;
+            taskList = PlayerVariables.tasks;
             UpdateTaskPanel();
             yield return new WaitForSeconds(1);
         }

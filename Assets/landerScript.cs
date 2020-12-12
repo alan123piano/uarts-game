@@ -21,30 +21,20 @@ public class landerScript : MonoBehaviour
 
     private void Start()
     {
-        mainframe.GetComponent<PlayerVariables>().tasks = savedTasks1;
+        PlayerVariables.tasks = savedTasks1;
     }
 
     // Start is called before the first frame update
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        /**if (currentTaskSet == 1 && currentTasksCompleted(savedTasks1) == true)
-        {
-            currentTaskSet += 1;
-            int index = 0;
-            foreach(Task task in savedTasks2)
-            {
-                mainframe.GetComponent<PlayerVariables>().tasks[index] = task;
-                index += 1;
-            }
-        }**/
         if (currentTaskSet == 1 && currentTasksCompleted(savedTasks1) == true)
         {
             currentTaskSet += 1;
             int index = 0;
             foreach (Task task in savedTasks2)
             {
-                mainframe.GetComponent<PlayerVariables>().tasks[index] = task;
+                PlayerVariables.tasks[index] = task;
                 index += 1;
             }
         }
