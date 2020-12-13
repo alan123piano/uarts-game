@@ -16,7 +16,7 @@ public class dropOff : MonoBehaviour
         if (collision.gameObject.GetComponent<isHoldable>() == true && robotMoveScript.isGrabbing == false){
             AudioSource.PlayClipAtPoint(collectSound, Vector3.zero);
             collision.gameObject.SetActive(false);
-            PlayerVariables.addToInventory(new Item("Strange Seed", false));
+            PlayerVariables.addToInventory(PlayerVariables.findItemFromObject(collision.gameObject));
         }
     }
 }

@@ -44,6 +44,15 @@ public static class PlayerVariables
         }
     }
 
+    public static Item findItemFromObject(GameObject obj){
+        if(obj = GameObject.Find("seed")){
+            return new Item("strangeSeed", false);
+        }
+        else{
+            return null;
+        }
+    }
+
     public static void addToInventory(Item item)
     {
         inventory.Add(item);
