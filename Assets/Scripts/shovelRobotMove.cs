@@ -85,13 +85,11 @@ public class shovelRobotMove : MonoBehaviour
         spriteRender.sprite = jumpingSprite;
         float deltaPos = 0;
         float initTime = Time.time;
-        //Vector3 initPos = transform.position;
         while (deltaPos >= 0)
         {
             Debug.Log("hi");
             rb.position += Vector2.up * (Mathf.Cos((Time.time - initTime) * jumpTime)) * jumpPower;
             deltaPos += Vector2.up.y * (Mathf.Cos((Time.time - initTime) * jumpTime)) * jumpPower;
-            //transform.position = new Vector3(transform.position.x, transform.position.y + (-Mathf.Cos(deltaTime) * jumpPower), transform.position.z);
             yield return null;
         }
 

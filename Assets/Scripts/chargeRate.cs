@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class chargeRate : MonoBehaviour
 {
-    public GameObject energyBar;
+    private GameObject energyBar;
     // Start is called before the first frame update
     void Start()
     {
+        energyBar = GameObject.Find("energyBar");
         StartCoroutine(charge());
     }
 
@@ -21,8 +22,10 @@ public class chargeRate : MonoBehaviour
     {
         while (true)
         {
-            //energyBar.GetComponent<energyScript>().changeEnergy(8);
-            yield return new WaitForSeconds(30);
+            if(GetComponent<CapsuleCollider2D>().isTrigger == false){
+                energyBar.GetComponent<energyScript>().changeEnergy(1);
+            }
+            yield return new WaitForSeconds(5);
         }
         
 

@@ -7,7 +7,7 @@ public class energyScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public Slider slider;
-    public static float energy = 30;
+    public static float energy = 10;
     
     private void Start()
     {

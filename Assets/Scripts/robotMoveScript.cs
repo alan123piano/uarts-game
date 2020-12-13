@@ -8,7 +8,6 @@ public class robotMoveScript : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer spriteRender;
     private Camera cam;
-
     public GameObject dirtChecker;
     public GameObject robotPopUp;
     public GameObject highlight;
@@ -21,8 +20,6 @@ public class robotMoveScript : MonoBehaviour
     // del later /\
     public static Vector2 wantedPosition;
     public static GameObject chosenGameObject;
-    public static GameObject wantedCollectObject;
-    public static GameObject wantedDropObject;
     
     private Vector2 speed;
     // ---- Button:
@@ -39,14 +36,12 @@ public class robotMoveScript : MonoBehaviour
         spriteRender = GetComponent<SpriteRenderer>();
         selectItemPopUpRect = selectItemPopUp.GetComponent<RectTransform>();
         speed = new Vector2(0, 0);
-        // ---- Button:
         pickUpButton = GameObject.Find("pickUpButton").GetComponent<Button>();
         dirtSampleButton = GameObject.Find("dirtSampleButton").GetComponent<Button>();
         popUpRect = popUpObject.GetComponent<RectTransform>();
         popUpObject.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(isMovingToPosition){
@@ -54,7 +49,6 @@ public class robotMoveScript : MonoBehaviour
         }
         if(isSeekingPosition){
             selectItemPopUp.SetActive(true);
-            print("isSeekingPOs");
             selectItemPopUpRect.position = new Vector2(Input.mousePosition.x + 50, Input.mousePosition.y + 20);
             if (Input.GetMouseButtonDown(0)){
                 wantedPosition = new Vector2(cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0)).x, cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0)).y);
@@ -70,31 +64,10 @@ public class robotMoveScript : MonoBehaviour
         else{
             selectItemPopUp.SetActive(false);
         }
-        if (chosenGameObject != null && isGrabbing != true){
+        if (chosenGameObject != null && isGrabbing == false){
             isGrabbing = true;
             grab(chosenGameObject);
         }
-        
-        /**if (chosenGameObject != null && isMovingToPosition)
-        {
-            Vector2 pos = new Vector2(chosenGameObject.transform.position.x, chosenGameObject.transform.position.y);
-            rb.position = Vector2.SmoothDamp(rb.position, pos, ref speed, .5f, 3);
-        }
-        if (isMovingToPosition && chosenGameObject == null){
-            rb.position = Vector2.SmoothDamp(rb.position, wantedPosition, ref speed, .5f, 3);
-        }
-        
-        if (chosenGameObject != null && chosenGameObject.transform.position.x > transform.position.x)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
-        if (chosenGameObject != null && chosenGameObject.transform.position.x < transform.position.x)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }**/
-        //if(rb.velocity.x > 0){transform.localScale = new Vector3(1, 1, 1);}
-        //if(rb.velocity.x < 0){transform.localScale = new Vector3(-1, 1, 1);}
-        //if (PlayerVariables.inventory) //this is going to be if the inventroy has the dirt sample tester in it.
     }
 
     public void findpos()
@@ -103,96 +76,36 @@ public class robotMoveScript : MonoBehaviour
         robotPopUp.SetActive(false);
     }
 
-    /**IEnumerator findPos()
-    {
-        robotPopUp.SetActive(false);
-        selectItemPopUp.SetActive(true);
-        while(isSeekingPosition)
-        {
-            selectItemPopUpRect.position = new Vector2(Input.mousePosition.x + 50, Input.mousePosition.y + 20);
-            if (Input.GetMouseButtonDown(1))
-            {
-                isSeekingPosition = false;
-                selectItemPopUp.SetActive(false);
-            }
-            yield return null;
-        }
-        selectItemPopUp.SetActive(false);
-        robotMoveScript.isMovingToPosition = true;
-        if (chosenGameObject && chosenGameObject.GetComponent<isHoldable>() && isGrabbing)
-        {
-            print("You are already grabbing something!");
-            isSeekingPosition = true;
-            robotMoveScript.isMovingToPosition = false;
-            chosenGameObject = null;
-            StartCoroutine(findPos());
-        }
-        if (chosenGameObject && chosenGameObject.GetComponent<dropOff>() && isGrabbing == false)
-        {
-            print("You have nothing to drop off!");
-            isSeekingPosition = true;
-            robotMoveScript.isMovingToPosition = false;
-            chosenGameObject = null;
-            StartCoroutine(findPos());
-        }
-        //robotMoveScript.wantedPosition = new Vector2(chosenGameObject.transform.position.x, chosenGameObject.transform.position.y);
-    }**/
-    
-    /**public void moveToCollect(Vector3 pos)
-    {
-        //print("starting move to collect");
-        pos = new Vector2(pos.x, pos.y);
-        if (isMovingToPosition == true)
-        {
-            rb.position = Vector2.SmoothDamp(rb.position, pos, ref speed, .5f, 3);
-        }
-        
-    }**/
-
-
     private void grab(GameObject obj)
     {
         GetComponent<canHoldItem>().pickUp(obj);
     }
 
-    public static void dropOff()
+    public void Drop()
     {
-        print("in dropoff");
         isMovingToPosition = false;
-        isGrabbing = false;
-        wantedCollectObject.SetActive(false);
-        wantedCollectObject = null;
-        wantedDropObject = null;
-        PlayerVariables.getTaskByName("solar1").progress += 1;
+        GetComponent<canHoldItem>().drop(chosenGameObject);
     }
     public void GetDirtSample(){
         if (isGrabbing == false){
             dirtChecker.SetActive(true);
-            GetComponent<canHoldItem>().pickUp(dirtChecker);
-            StartCoroutine(LookingForDirt());
+            grab(dirtChecker);
+            StartCoroutine(CheckingDirt());
         }
         else{
             print("You hace sm in that hand o yours!");
         }
     }
 
-    IEnumerator LookingForDirt(){
-        bool isLooking = true;
-        while(isLooking){
-            selectItemPopUpRect.position = new Vector2(Input.mousePosition.x + 50, Input.mousePosition.y + 20);
-            if (Input.GetMouseButtonDown(1))
-            {
-                isLooking = false;
-            }
-            if(Input.GetMouseButton(0)){
-                isLooking = false;
-                wantedPosition = new Vector2(cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0)).x, cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0)).y);
-                isMovingToPosition = true;
-            }
-            yield return null;
+    IEnumerator CheckingDirt(){
+        for(byte i = 0; i < 4; i++){
+            print("Checking...");
+            yield return new WaitForSeconds(Random.Range(.3f, 1.2f));
         }
-        
-
+        double contamination = 1 - ((double)PlayerVariables.getTaskByName("clearAreaOfDust").progress / PlayerVariables.getTaskByName("clearAreaOfDust").steps);
+        print("[COMPLETE] Contamination Level: " + 100 * contamination + "%");
+        dirtChecker.SetActive(false);
+        isGrabbing = false;
     }
     private void OnMouseOver()
     {
