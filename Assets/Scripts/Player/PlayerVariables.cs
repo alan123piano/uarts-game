@@ -43,7 +43,6 @@ public static class PlayerVariables
             task.visible = val;
         }
     }
-
     public static Item findItemFromObject(GameObject obj){
         if(obj = GameObject.Find("seed")){
             return new Item("strangeSeed", false);
