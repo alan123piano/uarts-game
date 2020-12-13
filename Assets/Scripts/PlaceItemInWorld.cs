@@ -17,7 +17,7 @@ public class PlaceItemInWorld : MonoBehaviour
         if (isPlacing && ghostPrefab != null)
         {
             UpdateGhostPrefab();
-            if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+            if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject() && !GhostPrefabHasCollision())
             {
                 Item removed = PlayerVariables.removeFromInventory(itemName);
                 if (removed != null)
@@ -89,6 +89,11 @@ public class PlaceItemInWorld : MonoBehaviour
         {
             Destroy(gphs);
         }
+        dropOff gpdo = ghostPrefab.GetComponent<dropOff>();
+        if (gpdo != null)
+        {
+            Destroy(gpdo);
+        }
         foreach (Collider2D collider in ghostPrefab.GetComponentsInChildren(typeof(Collider2D)))
         {
             collider.isTrigger = true;
@@ -96,14 +101,14 @@ public class PlaceItemInWorld : MonoBehaviour
     }
 
     // PRECONDITIONS: [isPlacing], [ghostPrefab != null]
+    private Collider2D[] foundCollisions = new Collider2D[1];
     private bool GhostPrefabHasCollision()
     {
         foreach (Collider2D collider in ghostPrefab.GetComponentsInChildren(typeof(Collider2D)))
         {
-            Collider2D[] results = new Collider2D[1];
             ContactFilter2D cFilter = new ContactFilter2D();
-            cFilter.minDepth = 0;
-            int amount = collider.OverlapCollider(cFilter, results);
+            cFilter.useTriggers = false;
+            int amount = collider.OverlapCollider(cFilter, foundCollisions);
             if (amount > 0)
             {
                 return true;
