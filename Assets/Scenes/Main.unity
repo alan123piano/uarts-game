@@ -19346,6 +19346,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Storage Box
       objectReference: {fileID: 0}
+    - target: {fileID: 6008985878921419971, guid: b3e7e5545cca84bd0bdc2cb3bda2fdd9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6008985878921419974, guid: b3e7e5545cca84bd0bdc2cb3bda2fdd9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19406,6 +19411,11 @@ PrefabInstance:
       propertyPath: mainframe
       value: 
       objectReference: {fileID: 1515856435}
+    - target: {fileID: 6008985878921419992, guid: b3e7e5545cca84bd0bdc2cb3bda2fdd9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3e7e5545cca84bd0bdc2cb3bda2fdd9, type: 3}
 --- !u!1 &6289712036202033533
