@@ -18858,7 +18858,7 @@ PrefabInstance:
     - target: {fileID: 6008985878921419970, guid: b3e7e5545cca84bd0bdc2cb3bda2fdd9,
         type: 3}
       propertyPath: m_Name
-      value: storageBox
+      value: Storage Box
       objectReference: {fileID: 0}
     - target: {fileID: 6008985878921419974, guid: b3e7e5545cca84bd0bdc2cb3bda2fdd9,
         type: 3}

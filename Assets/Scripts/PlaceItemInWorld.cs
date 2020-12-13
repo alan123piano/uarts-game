@@ -54,6 +54,7 @@ public class PlaceItemInWorld : MonoBehaviour
 
         Transform gpTransform = ghostPrefab.GetComponent<Transform>();
         GameObject worldObject = Instantiate(prefab, gpTransform.position, gpTransform.rotation);
+        worldObject.name = itemName;
         
         if (ghostPrefab != null)
         {
