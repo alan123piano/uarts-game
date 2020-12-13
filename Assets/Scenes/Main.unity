@@ -3169,6 +3169,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: 0/0
       objectReference: {fileID: 0}
+    - target: {fileID: 8890175382546011900, guid: 4e2a31b8bc8eab4409bcb19452d3c4af,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8890175382546011902, guid: 4e2a31b8bc8eab4409bcb19452d3c4af,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11148,7 +11153,7 @@ PrefabInstance:
     - target: {fileID: 8769508886871339937, guid: 83c41b8e2138b4b66abbb00114e532dd,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 293.67267
+      value: 263.528
       objectReference: {fileID: 0}
     - target: {fileID: 8769508886997399944, guid: 83c41b8e2138b4b66abbb00114e532dd,
         type: 3}
@@ -11179,6 +11184,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769508886997399944, guid: 83c41b8e2138b4b66abbb00114e532dd,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 263.52795
       objectReference: {fileID: 0}
     - target: {fileID: 8769508887602513064, guid: 83c41b8e2138b4b66abbb00114e532dd,
         type: 3}
@@ -11353,6 +11363,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8769508886437598402, guid: 83c41b8e2138b4b66abbb00114e532dd, type: 3}
+    - {fileID: 6461521859906806695, guid: 83c41b8e2138b4b66abbb00114e532dd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 83c41b8e2138b4b66abbb00114e532dd, type: 3}
 --- !u!1 &1120011151
 GameObject:
@@ -18531,7 +18542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9254902, g: 0.9411765, b: 0.94509804, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -18713,7 +18724,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

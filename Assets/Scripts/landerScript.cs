@@ -19,6 +19,7 @@ public class landerScript : MonoBehaviour
     {
         PlayerVariables.addToInventory(new Item("SolarPanel", true));
         PlayerVariables.addToInventory(new Item("StorageBox", true));    
+        print(PlayerVariables.inventory);
     }
 
     // Start is called before the first frame update

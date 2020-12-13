@@ -9,12 +9,12 @@ public class InventoryPanelBuilder : MonoBehaviour
     public GameObject textUIPrefab;
     public GameObject placeableTextUIPrefab;
 
-    private Transform myTransform;
+    //private Transform myTransform;
     private PlaceItemInWorld piiw;
 
     void Start()
     {
-        myTransform = gameObject.GetComponent<Transform>();
+        //myTransform = gameObject.GetComponent<Transform>();
         piiw = mainframe.GetComponent<PlaceItemInWorld>();
         UpdateInvPanel();
     }
@@ -27,7 +27,7 @@ public class InventoryPanelBuilder : MonoBehaviour
 
     private void ClearInvPanel()
     {
-        foreach (Transform child in myTransform)
+        foreach (Transform child in gameObject.GetComponent<Transform>())
         {
             Destroy(child.gameObject);
         }
@@ -39,7 +39,7 @@ public class InventoryPanelBuilder : MonoBehaviour
         foreach (Item item in PlayerVariables.inventory)
         {
             if (item.placeable){
-                GameObject itemUI = Instantiate(placeableTextUIPrefab, myTransform);
+                GameObject itemUI = Instantiate(placeableTextUIPrefab, gameObject.GetComponent<Transform>());
                 itemUI.GetComponent<Text>().text = item.name;
                 Button btn = itemUI.GetComponent<Transform>().Find("Button").GetComponent<Button>() as Button;
                 btn.onClick.AddListener(() => {
@@ -48,7 +48,7 @@ public class InventoryPanelBuilder : MonoBehaviour
             }
             else
             {
-                GameObject itemUI = Instantiate(textUIPrefab, myTransform);
+                GameObject itemUI = Instantiate(textUIPrefab, gameObject.GetComponent<Transform>());
                 itemUI.GetComponent<Text>().text = item.name;
             }
         }
