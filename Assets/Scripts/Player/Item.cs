@@ -21,9 +21,11 @@ public class Item
         return string.Compare(a.name, b.name);
     }
 
+    // PRECONDITIONS: itemName has at least 1 character
     // returns null if doesn't exist in Resources/Items/...
     public static GameObject GetPrefab(string itemName)
     {
+        itemName = itemName.Replace(" ", "");
         if (prefabDict.ContainsKey(itemName))
         {
             return prefabDict[itemName];
