@@ -17,6 +17,11 @@ public class PlaceItemInWorld : MonoBehaviour
         if (isPlacing && ghostPrefab != null)
         {
             UpdateGhostPrefab();
+            if (Input.GetMouseButtonDown(1))
+            {
+                Stop();
+                return;
+            }
             if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject() && !GhostPrefabHasCollision())
             {
                 Item removed = PlayerVariables.removeFromInventory(itemName);
