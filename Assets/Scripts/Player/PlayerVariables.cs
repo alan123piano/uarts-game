@@ -15,6 +15,7 @@ public static class PlayerVariables
     public static List<Item> inventory = new List<Item>();
 
     public static double atmosphereContamination = 100;
+
     public static Task getTaskByName(string name)
     {
         for (int i = 0; i < tasks.Count; i++)

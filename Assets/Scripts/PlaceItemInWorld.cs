@@ -60,7 +60,7 @@ public class PlaceItemInWorld : MonoBehaviour
         Transform gpTransform = ghostPrefab.GetComponent<Transform>();
         GameObject worldObject = Instantiate(prefab, gpTransform.position, gpTransform.rotation);
         worldObject.name = itemName;
-        
+        CheckForTaskCompletion(itemName);
         if (ghostPrefab != null)
         {
             Destroy(ghostPrefab);
@@ -77,6 +77,12 @@ public class PlaceItemInWorld : MonoBehaviour
         isPlacing = false;
     }
 
+    private void CheckForTaskCompletion(string itemName){
+        if (itemName == "Solar Panel"){
+            PlayerVariables.addTaskProgress("solar1", 1);
+        }
+    }
+    
     private Vector3 MousePosInWorld()
     {
         Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
