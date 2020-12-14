@@ -96,4 +96,9 @@ public static class PlayerVariables
         }
         ipusCache.SendUpdateSignal();
     }
+
+    public static void displayDialogueOverGameObject(string msg)
+    {
+        // TODO
+    }
 }

@@ -6,7 +6,7 @@ public class HaxButton : MonoBehaviour
 {
     public void GiveSolarPanel()
     {
-        PlayerVariables.addToInventory(new Item("SolarPanel", true));
+        PlayerVariables.addToInventory(new Item("Solar Panel", true));
     }
 
     public void GiveVBucks()
