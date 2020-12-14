@@ -81,6 +81,15 @@ public class PlaceItemInWorld : MonoBehaviour
         if (itemName == "Solar Panel"){
             PlayerVariables.addTaskProgress("solar1", 1);
         }
+        if (itemName == "Storage Box"){
+            PlayerVariables.addTaskProgress("placeBox", 1);
+        }
+        if (itemName == "Lv1 Shelter"){
+            PlayerVariables.addTaskProgress("shelter1", 1);
+        }
+        if (itemName == "Lv2 Greenhouse"){
+            PlayerVariables.addTaskProgress("shelter2", 1);
+        }
     }
     
     private Vector3 MousePosInWorld()

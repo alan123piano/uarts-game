@@ -6,7 +6,6 @@ public class plantGrowth : MonoBehaviour
 {
     public List<Sprite> sprites;
     public int growthLevel = 0;
-    public bool growingPositive;
     public int growthRate = 35;  //in seconds -> this is the interval of growth
     // Start is called before the first frame update
     void Start()

@@ -9,7 +9,6 @@ public class robotMoveScript : MonoBehaviour
     private SpriteRenderer spriteRender;
     private Camera cam;
     public GameObject dirtChecker;
-    public GameObject robotPopUp;
     public GameObject highlight;
     public GameObject selectItemPopUp;
     private RectTransform selectItemPopUpRect;
@@ -73,7 +72,7 @@ public class robotMoveScript : MonoBehaviour
     public void findpos()
     {
         isSeekingPosition = true;
-        robotPopUp.SetActive(false);
+        popUpObject.SetActive(false);
     }
 
     private void grab(GameObject obj)
