@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 625682621953671651}
   - component: {fileID: 2106637748343471897}
   - component: {fileID: 7457105964198093753}
+  - component: {fileID: -6227734065708573414}
+  - component: {fileID: -3097119845382860382}
+  - component: {fileID: 7942056657018924814}
   m_Layer: 0
   m_Name: grayrock1
   m_TagString: Untagged
@@ -95,6 +98,52 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.095155835, y: 0.04297334}
+  m_Offset: {x: -0.014038563, y: -0.05436611}
   serializedVersion: 2
-  m_Radius: 0.6618708
+  m_Radius: 0.41851997
+--- !u!114 &-6227734065708573414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2392930402315959918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0da28dcdca4c4644b86751960e00db4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Rock
+--- !u!114 &-3097119845382860382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2392930402315959918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37d92bfe6e81d436598ea16176071050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &7942056657018924814
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2392930402315959918}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

@@ -7,8 +7,8 @@ public class dustSpawn : MonoBehaviour
     public GameObject dustObject;
     public int numberOfParticles;
     private int[,] ranges = new int[,] {
-        {-12, 40},
-        {-10, 30},
+        {-15, 58},
+        {-12, 43},
     };
     // Start is called before the first frame update
     void Start()

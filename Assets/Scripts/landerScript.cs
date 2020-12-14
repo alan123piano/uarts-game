@@ -17,8 +17,9 @@ public class landerScript : MonoBehaviour
 
     private void Start()
     {
-        PlayerVariables.addToInventory(new Item("SolarPanel", true));
-        PlayerVariables.addToInventory(new Item("storageBox", true));    
+        PlayerVariables.addToInventory(new Item("Solar Panel", true));
+        PlayerVariables.addToInventory(new Item("Storage Box", true)); 
+        PlayerVariables.addToInventory(new Item("Rock", false));
         print(PlayerVariables.inventory);
     }
 
