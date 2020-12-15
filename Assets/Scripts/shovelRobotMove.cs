@@ -19,10 +19,11 @@ public class shovelRobotMove : MonoBehaviour
     private Button enableButton;
     private Button disableButton;
     // Start is called before the first frame update
-    public GameObject popUpObject;
+    private GameObject popUpObject;
     private RectTransform popUpRect;
     void Start()
     {
+        popUpObject = GameObject.Find("ShovelRobotPopup");
         rb = GetComponent<Rigidbody2D>();
         spriteRender = GetComponent<SpriteRenderer>();
         enableButton = GameObject.Find("controlButton").GetComponent<Button>();

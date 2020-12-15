@@ -7,7 +7,6 @@ public class robotMoveScript : MonoBehaviour
 {
     private Rigidbody2D rb;
     private SpriteRenderer spriteRender;
-    public GameObject robotPopUp;
     public GameObject highlight;
     public GameObject selectItemPopUp;
     private RectTransform selectItemPopUpRect;
@@ -72,8 +71,8 @@ public class robotMoveScript : MonoBehaviour
 
     IEnumerator findPos()
     {
-        robotPopUp.SetActive(false);
-        print(robotPopUp.name);
+        popUpObject.SetActive(false);
+        print(popUpObject.name);
         selectItemPopUp.SetActive(true);
         while(isSeekingPosition)
         {
