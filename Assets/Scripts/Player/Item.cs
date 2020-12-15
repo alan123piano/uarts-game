@@ -17,8 +17,6 @@ public static class Item
         GameObject prefab = Resources.Load("Buildings/" + itemName) as GameObject;
         if (prefab == null)
         {
-            Debug.LogError("WARNING: The building named " + itemName +
-                " which is placeable has no associated prefab");
             return null;
         }
         bldgPrefabDict[itemName] = prefab;
@@ -38,8 +36,6 @@ public static class Item
         GameObject prefab = Resources.Load("Items/" + itemName) as GameObject;
         if (prefab == null)
         {
-            Debug.LogError("WARNING: The Item named " + itemName +
-                " has no associated prefab");
             return null;
         }
         itemPrefabDict[itemName] = prefab;
