@@ -21602,14 +21602,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2316152202155114707, guid: cd7ad191d0292426691262efda513fe8,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2316152202155114707, guid: cd7ad191d0292426691262efda513fe8,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1190106010}
+      objectReference: {fileID: 1515856438}
     - target: {fileID: 2316152202155114707, guid: cd7ad191d0292426691262efda513fe8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1515856438}
+    - target: {fileID: 2316152202155114707, guid: cd7ad191d0292426691262efda513fe8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: buttonAudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 2316152202155114707, guid: cd7ad191d0292426691262efda513fe8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd7ad191d0292426691262efda513fe8, type: 3}
 --- !u!1 &3160201207328944162
