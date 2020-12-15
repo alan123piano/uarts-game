@@ -112,6 +112,5 @@ public static class PlayerVariables
     private static void clearMessages(){
         directMessagePanel.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Text>().text = "";
         directMessagePanel.transform.GetChild(1).GetChild(0).gameObject.GetComponent<Text>().text = "";
-
     }
 }

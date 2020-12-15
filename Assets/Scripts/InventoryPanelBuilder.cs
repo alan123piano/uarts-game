@@ -36,20 +36,45 @@ public class InventoryPanelBuilder : MonoBehaviour
     private void PopulateInvPanel()
     {
         //print("Debug Log: " + taskList[1].progress);
+        Dictionary<string, int> itemizedInv = new Dictionary<string, int>();
+        Dictionary<string, bool> placeableByItemName = new Dictionary<string, bool>();
         foreach (Item item in PlayerVariables.inventory)
         {
-            if (item.placeable){
+            if (!placeableByItemName.ContainsKey(item.name))
+            {
+                placeableByItemName.Add(item.name, item.placeable);
+            }
+            if (!itemizedInv.ContainsKey(item.name))
+            {
+                itemizedInv.Add(item.name, 1);
+            }
+            else
+            {
+                itemizedInv[item.name]++;
+            }
+        }
+        foreach (KeyValuePair<string, int> pair in itemizedInv)
+        {
+            string itemName = pair.Key;
+            int itemAmount = pair.Value;
+            bool placeable = placeableByItemName[itemName];
+            string textLabel = itemName;
+            if (itemAmount > 1)
+            {
+                textLabel += " (" + itemAmount + ")";
+            }
+            if (placeable){
                 GameObject itemUI = Instantiate(placeableTextUIPrefab, gameObject.GetComponent<Transform>());
-                itemUI.GetComponent<Text>().text = item.name;
+                itemUI.GetComponent<Text>().text = textLabel;
                 Button btn = itemUI.GetComponent<Transform>().Find("Button").GetComponent<Button>() as Button;
                 btn.onClick.AddListener(() => {
-                    piiw.Begin(item.name);
+                    piiw.Begin(itemName);
                 });
             }
             else
             {
                 GameObject itemUI = Instantiate(textUIPrefab, gameObject.GetComponent<Transform>());
-                itemUI.GetComponent<Text>().text = item.name;
+                itemUI.GetComponent<Text>().text = textLabel;
             }
         }
     }
