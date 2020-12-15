@@ -1,0 +1,65 @@
+title: Bread
+tags: 
+colorID: 0
+position: 411,-94
+---
+--TRANSMISSION 0004--
+<<wait 0.25>>
+Landing sequence complete.
+[[Continue.|welcome]]
+===
+title: welcome
+tags: 
+colorID: 0
+position: 633,-94
+---
+--TRANSMISSION 0005--
+<<wait 0.25>>
+Welcome to Caedis-2217b. Your role here is of the utmost importance to the human race.
+Here are some tips to ensure the success of this mission.
+[[Continue.|control]]
+===
+title: control
+tags: 
+colorID: 0
+position: 853,-93
+---
+To control your bots, right click on them.
+[[Continue.|next]]
+===
+title: next
+tags: 
+colorID: 0
+position: 1071,-361
+---
+Go to the realLander with questions and to update the task panel (press ENTER key to initiate sequence).
+[[Continue.|alright]]
+[[Repeat tips|control]]
+===
+title: alright
+tags: 
+colorID: 0
+position: 1281,-96
+---
+--WARNING--
+<<wait 0.5>>
+Falling orbital debris hazard.
+[[Continue.|setup]]
+===
+title: setup
+tags: 
+colorID: 0
+position: 1498,-94
+---
+--TRANSMISSION 0006--
+<<wait 0.25>>
+Initiate base camp setup?
+[[Okay|okay]]
+===
+title: okay
+tags: 
+colorID: 0
+position: 1719,-93
+---
+<<stop>>
+===

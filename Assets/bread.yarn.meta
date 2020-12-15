@@ -1,0 +1,36 @@
+fileFormatVersion: 2
+guid: 045b9d18d2fc7494285ce472200e68de
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
+  baseLanguageID: en-US
+  stringIDs:
+  - bread-Bread-0
+  - bread-Bread-1
+  - bread-Bread-2
+  - bread-welcome-3
+  - bread-welcome-4
+  - bread-welcome-5
+  - bread-welcome-6
+  - bread-control-7
+  - bread-control-8
+  - bread-next-9
+  - bread-next-10
+  - bread-next-11
+  - bread-alright-12
+  - bread-alright-13
+  - bread-alright-14
+  - bread-setup-15
+  - bread-setup-16
+  - bread-setup-17
+  compilationStatus: 1
+  isSuccesfullyCompiled: 1
+  compilationErrorMessage: 
+  baseLanguage: {fileID: 7128917941130120860, guid: 045b9d18d2fc7494285ce472200e68de,
+    type: 3}
+  localizations: []
