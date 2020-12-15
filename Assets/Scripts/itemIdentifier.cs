@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class itemIdentifier : MonoBehaviour
 {
-    public string name;
+    new public string name;
 }

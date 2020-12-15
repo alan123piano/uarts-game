@@ -35,7 +35,7 @@ public static class Item
         {
             return itemPrefabDict[itemName];
         }
-        GameObject prefab = Resources.Load("Buildings/" + itemName) as GameObject;
+        GameObject prefab = Resources.Load("Items/" + itemName) as GameObject;
         if (prefab == null)
         {
             Debug.LogError("WARNING: The Item named " + itemName +
