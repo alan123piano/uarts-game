@@ -65,6 +65,7 @@ public class landerScript : MonoBehaviour
     private void GiveCorrespondingItemToTask(Task task){
         if (task.name == "shelter1"){
             PlayerVariables.addToInventory("Lv1 Shelter");
+            PlayerVariables.addToInventory("Dirt Checker");
         }
         if (task.name == "testSoil1"){
             PlayerVariables.addToInventory("Dirt Checker");

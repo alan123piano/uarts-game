@@ -86,13 +86,7 @@ public class robotMoveScript : MonoBehaviour
         GetComponent<canHoldItem>().drop(chosenGameObject);
     }
     public void GetDirtSample(){
-        if (dirtChecker == null)
-        {
-            return;
-        }
-        if (isGrabbing == false){
-            dirtChecker.SetActive(true);
-            grab(dirtChecker);
+        if (PlayerVariables.findInInventory("Dirt Checker") != null){
             StartCoroutine(CheckingDirt());
         }
         else{
