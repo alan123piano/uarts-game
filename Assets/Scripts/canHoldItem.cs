@@ -20,6 +20,9 @@ public class canHoldItem : MonoBehaviour
         item.transform.rotation = Quaternion.Euler(0, 0, 320);
     }
     public void drop(GameObject item){
+        if (item == null) {
+            return;
+        }
         robotMoveScript.chosenGameObject = null;
         robotMoveScript.isGrabbing = false;
         Vector3 savePos = item.transform.position;
