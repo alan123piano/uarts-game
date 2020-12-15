@@ -8,6 +8,7 @@ public class main : MonoBehaviour
     public AudioClip buttonClip;
     void Start()
     {
+        PlayerVariables.DeclareVars();
         StartCoroutine(FindContamination());
     }
 

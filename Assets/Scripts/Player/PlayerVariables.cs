@@ -17,7 +17,12 @@ public static class PlayerVariables
     public static List<Item> inventory = new List<Item>();
 
     public static double atmosphereContamination = 100;
+    private static GameObject directMessagePanel;
 
+    public static void DeclareVars()
+    {
+        directMessagePanel = GameObject.Find("directMessagePanel");
+    }
     public static Task getTaskByName(string name)
     {
         for (int i = 0; i < tasks.Count; i++)
@@ -97,5 +102,16 @@ public static class PlayerVariables
             ipusCache = GameObject.Find("MAINFRAME").GetComponent<InventoryPanelUpdateSignal>();
         }
         ipusCache.SendUpdateSignal();
+    }
+
+    public static void sendMessage(string title, string message){
+        clearMessages();
+        directMessagePanel.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Text>().text = title;
+        directMessagePanel.transform.GetChild(1).GetChild(0).gameObject.GetComponent<Text>().text = message;
+    }
+    private static void clearMessages(){
+        directMessagePanel.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Text>().text = "";
+        directMessagePanel.transform.GetChild(1).GetChild(0).gameObject.GetComponent<Text>().text = "";
+
     }
 }
