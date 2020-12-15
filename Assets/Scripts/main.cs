@@ -17,7 +17,7 @@ public class main : MonoBehaviour
     IEnumerator FindContamination(){ //this is an Couroutine because the load of counting all the dust every frame is too much
         while(true){
             PlayerVariables.atmosphereContamination = Mathf.Round(100 * ((float)GameObject.FindGameObjectsWithTag("Dust").Length / (float)180));
-            print("Contamination: " + PlayerVariables.atmosphereContamination + "%");
+            PlayerVariables.sendMessage("System", "Contamination: " + PlayerVariables.atmosphereContamination + "%");
             yield return new WaitForSeconds(5);
         }
     }

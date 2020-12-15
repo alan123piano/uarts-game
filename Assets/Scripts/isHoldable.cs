@@ -21,7 +21,7 @@ public class isHoldable : MonoBehaviour
                 robotMoveScript.isSeekingPosition = false;
             }
             else{
-                print("already grabbing somehting");
+                PlayerVariables.sendMessage("System", "Already grabbing something!");
                 robotMoveScript.isMovingToPosition = false;
             }
             

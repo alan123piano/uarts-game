@@ -29,11 +29,11 @@ public class shelter1Script : MonoBehaviour
                 plant.GetComponent<plantGrowth>().growthRate = shelterGrowthRate;
             }
             else{
-                print("This plant shelter is full!");
+                PlayerVariables.sendMessage("System", "This plant shelter is full!");
             }
         }
         else{
-            print("You arne't holding anything!!");
+            PlayerVariables.sendMessage("System", "You aren't holding anything!");
         } // green seed
         if(robotMoveScript.isGrabbing && itemSlot.transform.GetChild(0).gameObject.GetComponent<itemIdentifier>().name == "Green Seed"){
             if(gameObject.GetComponentsInChildren<Transform>().Length < maxCapacity){
@@ -44,18 +44,18 @@ public class shelter1Script : MonoBehaviour
                 plant.GetComponent<plantGrowth>().growthRate = shelterGrowthRate;
             }
             else{
-                print("This plant shelter is full!");
+                PlayerVariables.sendMessage("System", "This plant shelter is full!");
             }
         }
         else{
-            print("You arne't holding anything!!");
+            PlayerVariables.sendMessage("System", "You aren't holding anything!");
         }
     }
 
     public void CheckGrowth(){
         for(int i = 0; i < gameObject.GetComponentsInChildren<Transform>().Length; i++){
             print(i);
-            print("Plant " + i+1 + "Growth Stage: " + gameObject.transform.GetChild(i).gameObject.GetComponent<plantGrowth>().growthLevel);
+            PlayerVariables.sendMessage("Planter", "Plant " + i+1 + "Growth Stage: " + gameObject.transform.GetChild(i).gameObject.GetComponent<plantGrowth>().growthLevel);
         }
     }
     // Update is called once per frame

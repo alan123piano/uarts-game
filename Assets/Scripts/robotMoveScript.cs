@@ -96,17 +96,17 @@ public class robotMoveScript : MonoBehaviour
             StartCoroutine(CheckingDirt());
         }
         else{
-            print("You hace sm in that hand o yours!");
+            PlayerVariables.sendMessage("System", "You already have some dirt!");
         }
     }
 
     IEnumerator CheckingDirt(){
         for(byte i = 0; i < 4; i++){
-            print("Checking...");
+            PlayerVariables.sendMessage("System", "Checking...");
             yield return new WaitForSeconds(Random.Range(.3f, 1.2f));
         }
         double contamination = 1 - ((double)PlayerVariables.getTaskByName("clearAreaOfDust").progress / PlayerVariables.getTaskByName("clearAreaOfDust").steps);
-        print("[COMPLETE] Contamination Level: " + 100 * contamination + "%");
+        PlayerVariables.sendMessage("System", "[COMPLETE] Contamination Level: " + 100 * contamination + "%");
         dirtChecker.SetActive(false);
         isGrabbing = false;
     }
