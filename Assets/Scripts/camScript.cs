@@ -6,12 +6,11 @@ public class camScript : MonoBehaviour
 {
     public GameObject followGameObject;
     private Vector3 targetPosition;
-    private int[,] camBounds = { { -4, 48 }, { -5, 38 } }; // low x, high x, low y, high y
-
-    private void Start()
-    {
-    }
     // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
 
     // Update is called once per frame
     void Update()
@@ -28,11 +27,6 @@ public class camScript : MonoBehaviour
             //targetPosition.y += Input.GetAxisRaw("Vertical") * 12 * Time.deltaTime;
             targetPosition += new Vector3(Input.GetAxisRaw("Horizontal") * 12 * Time.deltaTime, Input.GetAxisRaw("Vertical") * 12 * Time.deltaTime, -1).normalized;
         }
-        if (targetPosition.x < camBounds[0,0]) { targetPosition.x = camBounds[0,0]; }
-        if (targetPosition.x > camBounds[0,1]) { targetPosition.x = camBounds[0,1]; }
-        if (targetPosition.y < camBounds[1, 0]) { targetPosition.y = camBounds[1,0]; }
-        if (targetPosition.y > camBounds[1, 1]) { targetPosition.y = camBounds[1, 1]; }
         targetPosition.z = -1;
-
     }
 }
