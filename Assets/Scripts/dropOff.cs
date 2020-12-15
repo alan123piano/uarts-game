@@ -1,24 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 public class dropOff : MonoBehaviour
 {
-    public AudioClip collectSound;
-    
+    // Start is called before the first frame update
     void Start()
     {
 
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    // Update is called once per frame
+    void Update()
     {
-        if (collision.gameObject.GetComponent<isHoldable>() == true && robotMoveScript.isGrabbing == false){
-            print("detected item");
-            AudioSource.PlayClipAtPoint(collectSound, Vector3.zero);
-            collision.gameObject.SetActive(false);
-            PlayerVariables.addToInventory(collision.gameObject.GetComponent<itemIdentifier>().name);
+
+    }
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(0) && robotMoveScript.isSeekingPosition == true && GetComponent<dropOff>() != null)
+        {
+            robotMoveScript.isSeekingPosition = false;
+            robotMoveScript.wantedDropObject = gameObject;
+            robotMoveScript.chosenGameObject = gameObject;
+            //robotMoveScript.isMovingToPosition = true;
+            //robotMoveScript.wantedPosition = new Vector2(transform.position.x, transform.position.y);
+
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (robotMoveScript.isMovingToPosition == true && robotMoveScript.isGrabbing == true)
+        {
+            robotMoveScript.isMovingToPosition = false;
+            robotMoveScript.isGrabbing = false;
+            robotMoveScript.isMovingToPosition = false;
+            robotMoveScript.dropOff();
         }
     }
 }

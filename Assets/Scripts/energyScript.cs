@@ -24,13 +24,8 @@ public class energyScript : MonoBehaviour
         {
             energy = slider.maxValue;
         }
-        
-        //slider.value = energy;
-    }
-
-    private void Update()
-    {
-        slider.value = Mathf.Lerp(slider.value, energy, .3f);
+        print("here");
+        slider.value = energy;
     }
     public void setMaxEnergy(int maxEnergy)
     {
