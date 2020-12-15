@@ -104,7 +104,7 @@ public static class PlayerVariables
         ipusCache.SendUpdateSignal();
     }
 
-    public static void sendMessage(string title, string message){
+    /**public static void sendMessage(string title, string message){
         clearMessages();
         directMessagePanel.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Text>().text = title;
         directMessagePanel.transform.GetChild(1).GetChild(0).gameObject.GetComponent<Text>().text = message;
@@ -112,5 +112,5 @@ public static class PlayerVariables
     private static void clearMessages(){
         directMessagePanel.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Text>().text = "";
         directMessagePanel.transform.GetChild(1).GetChild(0).gameObject.GetComponent<Text>().text = "";
-    }
+    }**/
 }
