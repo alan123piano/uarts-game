@@ -18,11 +18,7 @@ public class dropOff : MonoBehaviour
             print("detected item");
             AudioSource.PlayClipAtPoint(collectSound, Vector3.zero);
             collision.gameObject.SetActive(false);
-            PlayerVariables.addToInventory(new Item(collision.gameObject.GetComponent<itemIdentifier>().name, false));
-            foreach(Item item in PlayerVariables.inventory){
-                print(item.name);
-            }
-                
+            PlayerVariables.addToInventory(collision.gameObject.GetComponent<itemIdentifier>().name);
         }
     }
 }

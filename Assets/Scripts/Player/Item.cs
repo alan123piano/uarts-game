@@ -2,42 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item
+public static class Item
 {
-    public string name;
-    public bool placeable;
-
-    public static Dictionary<string, GameObject> prefabDict = new Dictionary<string, GameObject>();
-
-    // PRECONDITION: if [placeable], then exists Resources.Load("Items/" + [name])
-    public Item(string name, bool placeable)
+    // PRECONDITIONS: itemName has at least 1 character
+    // returns null if doesn't exist in Resources/Buildings/...
+    public static Dictionary<string, GameObject> bldgPrefabDict = new Dictionary<string, GameObject>();
+    public static GameObject GetBuildingPrefab(string itemName)
     {
-        this.name = name;
-        this.placeable = placeable;
-    }
-
-    public static int Compare(Item a, Item b)
-    {
-        return string.Compare(a.name, b.name);
+        itemName = itemName.Replace(" ", "");
+        if (bldgPrefabDict.ContainsKey(itemName))
+        {
+            return bldgPrefabDict[itemName];
+        }
+        GameObject prefab = Resources.Load("Buildings/" + itemName) as GameObject;
+        if (prefab == null)
+        {
+            Debug.LogError("WARNING: The building named " + itemName +
+                " which is placeable has no associated prefab");
+            return null;
+        }
+        bldgPrefabDict[itemName] = prefab;
+        return prefab;
     }
 
     // PRECONDITIONS: itemName has at least 1 character
     // returns null if doesn't exist in Resources/Items/...
-    public static GameObject GetPrefab(string itemName)
+    public static Dictionary<string, GameObject> itemPrefabDict = new Dictionary<string, GameObject>();
+    public static GameObject GetItemPrefab(string itemName)
     {
         itemName = itemName.Replace(" ", "");
-        if (prefabDict.ContainsKey(itemName))
+        if (itemPrefabDict.ContainsKey(itemName))
         {
-            return prefabDict[itemName];
+            return itemPrefabDict[itemName];
         }
-        GameObject prefab = Resources.Load("Items/" + itemName) as GameObject;
-        if (!prefab)
+        GameObject prefab = Resources.Load("Buildings/" + itemName) as GameObject;
+        if (prefab == null)
         {
             Debug.LogError("WARNING: The Item named " + itemName +
-                " which is placeable has no associated prefab");
+                " has no associated prefab");
             return null;
         }
-        prefabDict[itemName] = prefab;
+        itemPrefabDict[itemName] = prefab;
         return prefab;
     }
 }

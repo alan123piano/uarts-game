@@ -24,7 +24,7 @@ public class PlaceItemInWorld : MonoBehaviour
             }
             if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject() && !GhostPrefabHasCollision())
             {
-                Item removed = PlayerVariables.removeFromInventory(itemName);
+                string removed = PlayerVariables.removeFromInventory(itemName);
                 if (removed != null)
                 {
                     Finish();
@@ -47,7 +47,7 @@ public class PlaceItemInWorld : MonoBehaviour
             Destroy(ghostPrefab);
         }
         this.isPlacing = true;
-        this.prefab = Item.GetPrefab(itemName);
+        this.prefab = Item.GetBuildingPrefab(itemName);
         this.ghostPrefab = Instantiate(prefab);
         InitGhostPrefab();
         UpdateGhostPrefab();
