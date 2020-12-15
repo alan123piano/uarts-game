@@ -6556,6 +6556,7 @@ GameObject:
   - component: {fileID: 765859804}
   - component: {fileID: 765859803}
   - component: {fileID: 765859802}
+  - component: {fileID: 765859805}
   m_Layer: 5
   m_Name: grabFromInvButton
   m_TagString: Untagged
@@ -6648,6 +6649,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 765859805}
+        m_MethodName: toggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &765859803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6685,6 +6697,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765859800}
   m_CullTransparentMesh: 0
+--- !u!114 &765859805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765859800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 350026f7934a3ee44b3cfd9f614186b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frame: {fileID: 317833947}
 --- !u!1 &782765347
 GameObject:
   m_ObjectHideFlags: 0
@@ -21084,6 +21109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e366bc6a899964148b4011ad9b43f5d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
 --- !u!114 &2115308473
 MonoBehaviour:
   m_ObjectHideFlags: 0
