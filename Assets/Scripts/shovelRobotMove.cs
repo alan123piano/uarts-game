@@ -11,7 +11,6 @@ public class shovelRobotMove : MonoBehaviour
     public Sprite jumpingSprite;
     public Sprite standingSprite;
     public GameObject highlight;
-    public GameObject robotPopUp;
     public static bool moveActive = false;
     Rigidbody2D rb;
     SpriteRenderer spriteRender;
@@ -19,10 +18,11 @@ public class shovelRobotMove : MonoBehaviour
     private Button enableButton;
     private Button disableButton;
     // Start is called before the first frame update
-    public GameObject popUpObject;
+    private GameObject popUpObject;
     private RectTransform popUpRect;
     void Start()
     {
+        popUpObject = GameObject.Find("ShovelRobotPopup");
         rb = GetComponent<Rigidbody2D>();
         spriteRender = GetComponent<SpriteRenderer>();
         enableButton = GameObject.Find("controlButton").GetComponent<Button>();
@@ -69,7 +69,7 @@ public class shovelRobotMove : MonoBehaviour
     public void activate(bool value)
     {
         
-        robotPopUp.SetActive(false);
+        popUpObject.SetActive(false);
         if (value == true)
         {
             moveActive = true;
@@ -85,13 +85,11 @@ public class shovelRobotMove : MonoBehaviour
         spriteRender.sprite = jumpingSprite;
         float deltaPos = 0;
         float initTime = Time.time;
-        //Vector3 initPos = transform.position;
         while (deltaPos >= 0)
         {
             Debug.Log("hi");
             rb.position += Vector2.up * (Mathf.Cos((Time.time - initTime) * jumpTime)) * jumpPower;
             deltaPos += Vector2.up.y * (Mathf.Cos((Time.time - initTime) * jumpTime)) * jumpPower;
-            //transform.position = new Vector3(transform.position.x, transform.position.y + (-Mathf.Cos(deltaTime) * jumpPower), transform.position.z);
             yield return null;
         }
 

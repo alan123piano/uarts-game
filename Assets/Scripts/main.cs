@@ -8,16 +8,22 @@ public class main : MonoBehaviour
     public AudioClip buttonClip;
     void Start()
     {
-        
+        PlayerVariables.DeclareVars();
+        StartCoroutine(FindContamination());
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
+
+    IEnumerator FindContamination(){ //this is an Couroutine because the load of counting all the dust every frame is too much
+        while(true){
+            PlayerVariables.atmosphereContamination = Mathf.Round(100 * ((float)GameObject.FindGameObjectsWithTag("Dust").Length / (float)180));
+            print("Contamination: " + PlayerVariables.atmosphereContamination + "%");
+            yield return new WaitForSeconds(5);
+        }
     }
     public void buttonAudio()
     {
         AudioSource.PlayClipAtPoint(buttonClip, Vector3.zero);
     }
+
 }
