@@ -8,9 +8,11 @@ public static class PlayerVariables
         new Task("solar1", "Contruct solar panel", 1, true),
         new Task("clearAreaOfDust", "Clear dust around area", 20, true),
         new Task("collectPurpleSeed", "Puple seeds collected", 10, false),
-        new Task("placeBox", "Place a collection box", 1, true),
+        new Task("placeBox", "Place an item collection box", 1, true),
         new Task("shelter1", "Construct plant shelter", 1, false),
-        new Task("testSoil1", "Test soil samples", 5, false)
+        new Task("testSoil1", "Test soil samples", 5, false),
+        new Task("shelter2", "Place upgraded plant greenhouse", 1, false),
+        new Task("shovelBot", "Deploy dust shoveling Bot", 1, false)
     };
     public static List<Item> inventory = new List<Item>();
 
