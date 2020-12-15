@@ -38,19 +38,19 @@ public class InventoryPanelBuilder : MonoBehaviour
         //print("Debug Log: " + taskList[1].progress);
         Dictionary<string, int> itemizedInv = new Dictionary<string, int>();
         Dictionary<string, bool> placeableByItemName = new Dictionary<string, bool>();
-        foreach (Item item in PlayerVariables.inventory)
+        foreach (string item in PlayerVariables.inventory)
         {
-            if (!placeableByItemName.ContainsKey(item.name))
+            if (!placeableByItemName.ContainsKey(item))
             {
-                placeableByItemName.Add(item.name, item.placeable);
+                placeableByItemName.Add(item, Item.GetBuildingPrefab(item) != null);
             }
-            if (!itemizedInv.ContainsKey(item.name))
+            if (!itemizedInv.ContainsKey(item))
             {
-                itemizedInv.Add(item.name, 1);
+                itemizedInv.Add(item, 1);
             }
             else
             {
-                itemizedInv[item.name]++;
+                itemizedInv[item]++;
             }
         }
         foreach (KeyValuePair<string, int> pair in itemizedInv)

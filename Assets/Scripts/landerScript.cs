@@ -18,8 +18,8 @@ public class landerScript : MonoBehaviour
 
     private void Start()
     {
-        PlayerVariables.addToInventory(new Item("Solar Panel", true));
-        PlayerVariables.addToInventory(new Item("Storage Box", true)); 
+        PlayerVariables.addToInventory("Solar Panel");
+        PlayerVariables.addToInventory("Storage Box"); 
     }
 
     // Start is called before the first frame update
@@ -64,13 +64,13 @@ public class landerScript : MonoBehaviour
 
     private void GiveCorrespondingItemToTask(Task task){
         if (task.name == "shelter1"){
-            PlayerVariables.addToInventory(new Item("Lv1 Shelter", true));
+            PlayerVariables.addToInventory("Lv1 Shelter");
         }
         if (task.name == "testSoil1"){
-            PlayerVariables.addToInventory(new Item("Dirt Checker", false));
+            PlayerVariables.addToInventory("Dirt Checker");
         }
         if (task.name == "shovelBot"){
-            PlayerVariables.addToInventory(new Item("Shovel Bot", true));
+            PlayerVariables.addToInventory("Shovel Bot");
         }
     }
 

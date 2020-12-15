@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public static class PlayerVariables
 {
@@ -14,7 +15,7 @@ public static class PlayerVariables
         new Task("shelter2", "Place upgraded plant greenhouse", 1, false),
         new Task("shovelBot", "Deploy dust shoveling Bot", 1, false)
     };
-    public static List<Item> inventory = new List<Item>();
+    public static List<string> inventory = new List<string>();
 
     public static double atmosphereContamination = 100;
     private static GameObject directMessagePanel;
@@ -53,19 +54,19 @@ public static class PlayerVariables
         }
     }
 
-    public static void addToInventory(Item item)
+    public static void addToInventory(string item)
     {
         inventory.Add(item);
-        inventory.Sort(Item.Compare);
+        inventory.Sort();
         updateInventoryUI();
     }
 
     // returns null if item doesn't exist in inv
-    public static Item findInInventory(string itemName)
+    public static string findInInventory(string itemName)
     {
-        foreach (Item item in inventory)
+        foreach (string item in inventory)
         {
-            if (item.name == itemName)
+            if (item == itemName)
             {
                 return item;
             }
@@ -74,9 +75,9 @@ public static class PlayerVariables
     }
 
     // returns null if item doesn't exist in inv
-    public static Item removeFromInventory(string itemName)
+    public static string removeFromInventory(string itemName)
     {
-        Item item = findInInventory(itemName);
+        string item = findInInventory(itemName);
         if (item == null)
         {
             return null;
