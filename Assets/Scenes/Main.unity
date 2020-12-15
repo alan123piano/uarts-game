@@ -6655,17 +6655,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2115308472}
-        m_MethodName: UpdatePanel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &765859803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14413,6 +14402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 714fe1e73aef94dbca18946a107a5ee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dirtChecker: {fileID: 0}
   highlight: {fileID: 1067891723}
   selectItemPopUp: {fileID: 975884946}
   popUpObject: {fileID: 483905742}
@@ -16655,6 +16645,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dustObject: {fileID: 1017828258918696424, guid: 105b6ef9eebb34e238f642cc789dec82,
     type: 3}
+  numberOfParticles: 180
 --- !u!4 &1515856437
 Transform:
   m_ObjectHideFlags: 0
@@ -21075,7 +21066,7 @@ GameObject:
   - component: {fileID: 2115308473}
   - component: {fileID: 2115308472}
   m_Layer: 5
-  m_Name: GetItemPanel
+  m_Name: List (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

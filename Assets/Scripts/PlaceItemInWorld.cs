@@ -29,7 +29,7 @@ public class PlaceItemInWorld : MonoBehaviour
                 {
                     Finish();
                 }
-                else 
+                else
                 {
                     Stop();
                 }
