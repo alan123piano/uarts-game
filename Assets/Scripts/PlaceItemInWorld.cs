@@ -40,7 +40,6 @@ public class PlaceItemInWorld : MonoBehaviour
     public void Begin(string itemName)
     {
         this.itemName = itemName;
-        PlayerVariables.sendMessage("OverLoard:", "He shall not eat my chicekn");
         stopPlacingButton.SetActive(true);
         if (ghostPrefab != null)
         {

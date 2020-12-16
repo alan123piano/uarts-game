@@ -7,8 +7,9 @@ public class landerScript : MonoBehaviour
 {
     public GameObject mainframe;
     public DialogueRunner dialoguerunner;
-    public string startnode;
 
+    bool initDialougeDone = false;
+    int dialougeVisitedTracker = 0;
     private int currentTaskSet = 0;
     private List<List<string>> taskSets = new List<List<string>>{
         new List<string>(){"solar1", "clearAreaOfDust", "placeBox"},
@@ -19,7 +20,11 @@ public class landerScript : MonoBehaviour
     private void Start()
     {
         PlayerVariables.addToInventory("Solar Panel");
-        PlayerVariables.addToInventory("Storage Box"); 
+        PlayerVariables.addToInventory("Storage Box");
+        PlayerVariables.addToInventory("Purple Seed");
+        PlayerVariables.addToInventory("Green Seed");
+        PlayerVariables.addToInventory("Brocc Seed");
+        PlayerVariables.addToInventory("Dirt Checker");
     }
 
     // Start is called before the first frame update
@@ -73,15 +78,29 @@ public class landerScript : MonoBehaviour
         if (task.name == "shovelBot"){
             PlayerVariables.addToInventory("Shovel Bot");
         }
+        if (task.name == "shelter2"){
+            PlayerVariables.addToInventory("Lv2 Greenhouse");
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if(initDialougeDone == false){
+            dialoguerunner.StartDialogue("Bread");
+            initDialougeDone = true;
+        }
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            dialoguerunner.StartDialogue(startnode);
+            if (dialougeVisitedTracker == 0){
+                dialoguerunner.StartDialogue("Start");
+                dialougeVisitedTracker += 1;
+            }
+            else{
+                dialoguerunner.StartDialogue("StartAlt");
+            }
         }
     }
+
 
     private void OnTriggerExit2D(Collider2D collision)
     {

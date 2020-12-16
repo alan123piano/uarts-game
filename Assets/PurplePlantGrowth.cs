@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class plantGrowth : MonoBehaviour
+public class PurplePlantGrowth : MonoBehaviour
 {
     public List<Sprite> sprites;
     public int growthLevel = 0;
@@ -25,6 +25,10 @@ public class plantGrowth : MonoBehaviour
             else{
                 if (Random.Range(0, 3) == 0){
                     growthLevel -= 1;
+                }
+                if (growthLevel == sprites.Count - 1){
+                    GameObject.Instantiate(Resources.Load("Purple Seed") as GameObject, new Vector3(gameObject.transform.position.x - .2f, gameObject.transform.position.y - Random.Range(.7f, 1.2f), 0f), Quaternion.Euler(0, 0, Random.Range(0, 359)));
+                    GameObject.Instantiate(Resources.Load("Purple Seed") as GameObject, new Vector3(gameObject.transform.position.x + .2f, gameObject.transform.position.y - Random.Range(.7f, 1.2f), 0f), Quaternion.Euler(0, 0, Random.Range(0, 359)));
                 }
             }
             yield return new WaitForSeconds(Random.Range(growthModifier * growthRate - 5, growthModifier * growthRate + 5));

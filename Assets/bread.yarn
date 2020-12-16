@@ -32,7 +32,7 @@ tags:
 colorID: 0
 position: 1071,-361
 ---
-Go to the realLander with questions and to update the task panel (press ENTER key to initiate sequence).
+Go to the Lander with questions and to update the task panel (press ENTER key to initiate sequence).
 [[Continue.|alright]]
 [[Repeat tips|control]]
 ===
@@ -44,6 +44,7 @@ position: 1281,-96
 --WARNING--
 <<wait 0.5>>
 Falling orbital debris hazard.
+Return to the Lander to Update your task list.
 [[Continue.|setup]]
 ===
 title: setup

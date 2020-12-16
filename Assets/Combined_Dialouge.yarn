@@ -1,0 +1,385 @@
+title: pickup_bot
+tags: 
+colorID: 0
+position: 224,-34
+---
+The GraB-32, also called the Pickup bot, has a range of functions, including building and collecting items. Which would you like to learn more about?
+[[Assembling items |assemble]]
+[[Collecting seeds |seeds]]
+[[Collecting plants |plants]]
+[[Exit |close_comm]]
+===
+title: shovel_bot
+tags: 
+colorID: 0
+position: 462,-37
+---
+The Debris Disposal All-Terrain Android (DDATA), also called the Shovel bot, functions mainly to clean up the ash and debris on or near the surface of the planet. Which would you like to learn more about?
+[[Shoveling debris and ash |trash]]
+[[Vacuuming ash |ash]]
+[[Why is the debris here? |why_debris]]
+[[Exit |close_comm]]
+===
+title: close_comm
+tags: 
+colorID: 0
+position: 712,-34
+---
+<<stop>>
+===
+title: assemble
+tags: 
+colorID: 0
+position: -259,-264
+---
+Occasionally, you will be sent a package with a new bot or structure; while some may be put to work immediately, others will need to be charged and/or assembled before use. The Pickup bot, with its gripping and agile movement capabilities, can help build these. Note, however, that during this process, it will not be able to help with any other tasks.
+[[Okay |finish_dialogue]]
+===
+title: seeds
+tags: 
+colorID: 0
+position: -18,-260
+---
+When new seeds appear, you can direct the Pickup bot to collect it and add it to your inventory. Later, you can plant and attempt to grow them. The green should look very nice here!
+[[Okay |finish_dialogue]]
+[[Why am I planting things? |story]]
+===
+title: plants
+tags: 
+colorID: 0
+position: 219,-268
+---
+You can direct the Pickup bot to move existing plants or place them into your inventory. While in the inventory, they will be kept at the minimum survival conditions and thus will stay alive but not continue to grow. You may replant them, and they will continue to grow where they left off.
+[[Okay |finish_dialogue]]
+[[Why am I planting things? |story]]
+===
+title: finish_dialogue
+tags: 
+colorID: 0
+position: 459,-501
+---
+Anything else?
+[[Yes |continue]]
+[[No |close_comm]]
+===
+title: trash
+tags: 
+colorID: 0
+position: 458,-268
+---
+The Shovel bot can be directed to an area with surface ash or debris to clean it up. The collected waste will be collected and recycled for later human use, such as roads or building materials.
+[[Okay |finish_dialogue]]
+===
+title: ash
+tags: 
+colorID: 0
+position: 706,-271
+---
+You might see ash floating in the air; the Shovel bot also has short-range vacuum capabilities to clean up this macro-particle air pollution. The collected waste will be collected and recycled for later human use, such as roads or building materials.
+[[Okay |finish_dialogue]]
+===
+title: Start
+tags: 
+colorID: 0
+position: 245,594
+---
+--INITIALIZING SEQUENCE--
+<< wait 1>>
+<< if visited ("Start") is true>>
+Already Visited
+<< else>>
+First Time visiting
+<< endif>> 
+--Establishing Lander Informational Correspondence--
+<< wait .5>>
+--Connecting to AI Operation Control--
+<< wait .2>>
+--INITIALIZING--
+Welcome to live machine correspondence State question about Caedis-2217b.
+[[Continue.|continue]]
+===
+title: story
+tags: 
+colorID: 0
+position: 947,-507
+---
+The humans wish to see if this planet can sustain life. The conditions of the planet as it is now are not ideal for Earth plants and human life. The Earth plants you are growing are ideal for changing the ground and atmospheric compositions to better match Earth conditions. Once the planet is clean and the conditions are ideal, this will be a very nice place for families to live. 
+[[Okay |finish_dialogue]]
+[[Was there any life here before? |life_before]]
+===
+title: why_debris
+tags: 
+colorID: 0
+position: 947,-268
+---
+The humans have been using this planet as a designated Trash Planet for a few years now; they eject larger pieces of junk into the atmosphere, where they burn up. Pieces often fall to the surface or create this fine metallic ash because the atmosphere is currently relatively thin. However, that can be remedied with just a few decades of the important cleanup work you are doing now!
+[[Okay |finish_dialogue]]
+[[Why am I cleaning it up? |story]]
+===
+title: life_before
+tags: 
+colorID: 0
+position: 945,-742
+---
+--LOADING--
+<<wait 2>>
+--LOADING--
+<<wait 2>>
+--RESTRICTED ACCESS--
+[[Hm.|finish_dialogue]]
+[[What?|finish_dialogue]]
+===
+title: continue
+tags: 
+colorID: 0
+position: 516,261
+---
+Which bot do you have questions about?
+[[The Pickup bot |pickup_bot]]
+[[The Shovel bot |shovel_bot]]
+[[Exit |close_comm]]
+===
+title: Bread
+tags: 
+colorID: 0
+position: 905,583
+---
+--TRANSMISSION 0004--
+<<wait 0.25>>
+Landing sequence complete.
+[[Continue.|welcome]]
+===
+title: welcome
+tags: 
+colorID: 0
+position: 1207,520
+---
+--TRANSMISSION 0005--
+<<wait 0.25>>
+Welcome to Caedis-2217b. Your role here is of the utmost importance to the human race.
+Here are some tips to ensure the success of this mission.
+[[Continue.|control]]
+===
+title: control
+tags: 
+colorID: 0
+position: 1494,390
+---
+To control your bots, right click on them.
+[[Continue.|next]]
+===
+title: next
+tags: 
+colorID: 0
+position: 1176,201
+---
+Go to the Lander with questions and to update the task panel (press ENTER key to initiate sequence).
+[[Continue.|alright2]]
+[[Repeat tips|control]]
+===
+title: alright2
+tags: 
+colorID: 0
+position: 1281,-96
+---
+--WARNING--
+<<wait 0.5>>
+Falling orbital debris hazard.
+Return to the Lander to Update your task list.
+[[Continue.|setup]]
+===
+title: setup
+tags: 
+colorID: 0
+position: 1498,-94
+---
+--TRANSMISSION 0006--
+<<wait 0.25>>
+Initiate base camp setup?
+[[Okay|okay]]
+===
+title: okay
+tags: 
+colorID: 0
+position: 1719,-93
+---
+<<stop>>
+===
+title: Acid
+tags: 
+colorID: 0
+position: -82,-565
+---
+<<if visited("Acid") is false>>
+--WARNING--
+Unknown presence detected, proceed with caution.
+[[Continue.|ahh]]
+<<else>>
+--TRANSMISSION 0007--
+Volatile organic compounds detected. Translating..
+<< wait .1>> 
+<<endif>>
+===
+title: ahh
+tags: 
+colorID: 0
+position: 214,-708
+---
+--ERROR 9201--
+Circuitry contamination from unknown source.
+--ERROR 6235--
+Mechanical malfunction.
+--WARNING--
+Exit area immediately.
+[[Exit.|finish]]]]
+[[Ignore warning.|talk]]
+===
+title: talk
+tags: 
+colorID: 0
+position: -73,-906
+---
+--You hear a shifting sound nearby.--
+--TRANSMISSION 0007--
+Volatile organic compounds detected. Translating..
+<<wait 0.5>>
+???: Hello.
+[[??|what_the_hell]]
+===
+title: what_the_hell
+tags: 
+colorID: 0
+position: 546,-785
+---
+???: Who are you, and why are you here?
+[[AI, on a mission.|mission]]
+[[Who’s talking?|who]]
+===
+title: mission
+tags: 
+colorID: 0
+position: 310,-969
+---
+???: A mission? An AI?
+--You look around, confused.--
+[[Who’s talking?|who]]
+===
+title: who
+tags: 
+colorID: 0
+position: 769,-998
+---
+--The large pulsating plant shifts slightly.--
+Plant: Me, hello. I do not think I have met one of your kind before.
+--It shifts again.--
+Plant: You move, where are your roots?
+You: I don’t have any.
+Plant: Oh? A fascinating creature indeed.
+[[Are there more of you?|more]]
+[[What are you?|what]]
+===
+title: more
+tags: 
+colorID: 0
+position: 323,-1226
+---
+Plant: Yes, but only I am awake. Do not disturb my friends, for they are sleeping.
+You: Sleeping?
+Plant: My seed pod broke, I think something fell on it. I was released some time ago and have been slowly growing since. I do not think it was always this hard to survive..
+[[Seed pod?|seed]]
+===
+title: what
+tags: 
+colorID: 0
+position: 766,-1223
+---
+Plant: I feel that you are scared.
+[[It’s alright.|alright1]]
+[[Don’t worry, I have no emotions.|alright1]]
+===
+title: alright1
+tags: 
+colorID: 0
+position: 776,-1499
+---
+Plant: Nevertheless I apologize, I didn’t mean to cause any fear, I just wanted to talk.
+[[Are there more of you?|more]]
+[[Talk about what?|redrock]]
+===
+title: seed
+tags: 
+colorID: 0
+position: 324,-1449
+---
+Plant: In my opinion, it was more beautiful than all the others you’ll see. Pity it broke.
+<<wait 0.5>>
+Anyway, may I ask why you are here? You seem confused by me, I do not think you are from here somehow.
+--You explain the mission.--
+<<wait 0.5>>
+--The plant says nothing for a minute.--
+<<wait 0.5>>
+Plant: The ash wasn’t always here?
+<<wait 1>>
+--The plant shakes.--
+<<wait 0.5>>
+Plant: Oh, you caused this.
+[[No, I didn’t, the humans did.|humans]]
+[[Yes, but I’m also cleaning it up.|humans]]
+===
+title: humans
+tags: 
+colorID: 0
+position: 323,-1675
+---
+Plant: It hurts, it hurts..the ash..
+--The plant shakes violently. You move away slightly in terror.--
+Plant: You are a part of this.
+<<wait 0.5>>
+--It stops shaking--
+<<wait 0.5>>
+Plant: Leave.
+[[I have more questions!|no]]
+[[I can’t, I have to finish my mission.|no]]
+===
+title: no
+tags: 
+colorID: 0
+position: 322,-1895
+---
+--The plant stills again.--
+[[Hello?|end]]
+===
+title: end
+tags: 
+colorID: 0
+position: 756,-1897
+---
+--WARNING--
+Do not engage with potentially dangerous native plant life. Exterminate.
+<<stop>>
+===
+title: finish
+tags: 
+colorID: 0
+position: -117,-1308
+---
+<< stop>>
+===
+title: redrock
+tags: 
+colorID: 0
+position: 1116,-1719
+---
+Plant: I need to spread the seeds of my fellow species, but I am too weak to move. The seeds can be found in the rocks.
+[[ Weak?|humans]]
+===
+title: Warning1
+tags: 
+colorID: 0
+position: -203,434
+---
+Central Control: Unidentified lifeforms detected in plant shelter. Remove immediately.
+--Log.0025 Recorded--
+<< wait 1>>
+<< stop>>
+===

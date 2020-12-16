@@ -28,6 +28,10 @@ public class energyScript : MonoBehaviour
         //slider.value = energy;
     }
 
+    public float ReadEnergy(){
+        return energy;
+    }
+
     private void Update()
     {
         slider.value = Mathf.Lerp(slider.value, energy, .3f);

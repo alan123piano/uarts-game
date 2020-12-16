@@ -38,21 +38,28 @@ ScriptedImporter:
   - Comm_Dialogue-Start-25
   - Comm_Dialogue-Start-26
   - Comm_Dialogue-Start-27
-  - Comm_Dialogue-story-28
-  - Comm_Dialogue-story-29
-  - Comm_Dialogue-story-30
-  - Comm_Dialogue-why_debris-31
-  - Comm_Dialogue-why_debris-32
-  - Comm_Dialogue-why_debris-33
-  - Comm_Dialogue-life_before-34
-  - Comm_Dialogue-life_before-35
-  - Comm_Dialogue-life_before-36
-  - Comm_Dialogue-life_before-37
-  - Comm_Dialogue-life_before-38
-  - Comm_Dialogue-continue-39
-  - Comm_Dialogue-continue-40
-  - Comm_Dialogue-continue-41
-  - Comm_Dialogue-continue-42
+  - Comm_Dialogue-Start-28
+  - Comm_Dialogue-Start-29
+  - Comm_Dialogue-Start-30
+  - Comm_Dialogue-Start-31
+  - Comm_Dialogue-Start-32
+  - Comm_Dialogue-Start-33
+  - Comm_Dialogue-story-34
+  - Comm_Dialogue-story-35
+  - Comm_Dialogue-story-36
+  - Comm_Dialogue-why_debris-37
+  - Comm_Dialogue-why_debris-38
+  - Comm_Dialogue-why_debris-39
+  - Comm_Dialogue-life_before-40
+  - Comm_Dialogue-life_before-41
+  - Comm_Dialogue-life_before-42
+  - Comm_Dialogue-life_before-43
+  - Comm_Dialogue-life_before-44
+  - Comm_Dialogue-continue-45
+  - Comm_Dialogue-continue-46
+  - Comm_Dialogue-continue-47
+  - Comm_Dialogue-continue-48
+  - Comm_Dialogue-InitStart-49
   compilationStatus: 1
   isSuccesfullyCompiled: 1
   compilationErrorMessage: 

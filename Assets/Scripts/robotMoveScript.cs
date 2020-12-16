@@ -8,7 +8,6 @@ public class robotMoveScript : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer spriteRender;
     private Camera cam;
-    public GameObject dirtChecker;
     public GameObject highlight;
     public GameObject selectItemPopUp;
     private RectTransform selectItemPopUpRect;
@@ -28,9 +27,12 @@ public class robotMoveScript : MonoBehaviour
     // ----
     public GameObject popUpObject;
     private RectTransform popUpRect;
+
+    private Transform itemSlot;
     void Start()
     {
         cam = Camera.main;
+        itemSlot = transform.Find("itemSlot");
         rb = GetComponent<Rigidbody2D>();
         spriteRender = GetComponent<SpriteRenderer>();
         selectItemPopUpRect = selectItemPopUp.GetComponent<RectTransform>();
@@ -43,6 +45,7 @@ public class robotMoveScript : MonoBehaviour
 
     void Update()
     {
+        print("Grabbing = " + isGrabbing);
         if(isMovingToPosition){
             rb.position = Vector2.SmoothDamp(rb.position, wantedPosition, ref speed, .2f, 3);
         }
@@ -99,10 +102,41 @@ public class robotMoveScript : MonoBehaviour
             PlayerVariables.sendMessage("System", "Checking...");
             yield return new WaitForSeconds(Random.Range(.3f, 1.2f));
         }
-        double contamination = 1 - ((double)PlayerVariables.getTaskByName("clearAreaOfDust").progress / PlayerVariables.getTaskByName("clearAreaOfDust").steps);
-        PlayerVariables.sendMessage("System", "[COMPLETE] Contamination Level: " + 100 * contamination + "%");
-        dirtChecker.SetActive(false);
+        PlayerVariables.sendMessage("System", "[COMPLETE] Contamination Level: " + PlayerVariables.atmosphereContamination + "%");
         isGrabbing = false;
+    }
+
+    public void PlantWorldSeed(){
+        if(itemSlot.GetChild(0).gameObject != null){
+            if(itemSlot.GetChild(0).gameObject.GetComponent<worldSeedPlantScript>()){
+                if(itemSlot.transform.GetChild(0).gameObject.GetComponent<itemIdentifier>().name == "Strong Purple Seed"){
+                    Vector3 savePos = itemSlot.transform.GetChild(0).position;
+                    Destroy(itemSlot.transform.GetChild(0).gameObject);
+                    robotMoveScript.chosenGameObject = null;
+                    robotMoveScript.isGrabbing = false;
+                    GameObject.Instantiate(Resources.Load("Plants/purple0") as GameObject, savePos + (0.3f * Vector3.down), Quaternion.Euler(0,0,0));
+                }
+                if(itemSlot.transform.GetChild(0).gameObject.GetComponent<itemIdentifier>().name == "Red Seed"){
+                    Vector3 savePos = itemSlot.transform.GetChild(0).position;
+                    Destroy(itemSlot.transform.GetChild(0).gameObject);
+                    robotMoveScript.chosenGameObject = null;
+                    robotMoveScript.isGrabbing = false;
+                    if(Random.Range(0, 1) == 0){
+                        GameObject.Instantiate(Resources.Load("Plants/tendril0") as GameObject, savePos + (0.3f * Vector3.down), Quaternion.Euler(0,0,0));
+                    }
+                    else{
+                        GameObject.Instantiate(Resources.Load("Plants/snake0") as GameObject, savePos + (0.3f * Vector3.down), Quaternion.Euler(0,0,0));
+                    }
+                }
+                
+            }
+            else{
+                PlayerVariables.sendMessage("Robot:", "Not currently holding a seed");
+            }
+        }
+        else{
+            PlayerVariables.sendMessage("Robot:","No seed in hand");
+        }
     }
     private void OnMouseOver()
     {

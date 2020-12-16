@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0da28dcdca4c4644b86751960e00db4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Purple Seed
+  name: Green Seed
 --- !u!1 &4854718908188766382
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,13 +6,17 @@ using Yarn.Unity;
 public class dialogueScript : MonoBehaviour
 {
     public DialogueRunner dialoguerunner;
+    private bool visitedTracker = false;
     public string startnode;
     // Start is called before the first frame update
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            dialoguerunner.StartDialogue(startnode);
+        if (visitedTracker == false){
+            dialoguerunner.StartDialogue("Acid");
+            visitedTracker = true;
         }
-    }
+        else{
+            dialoguerunner.StartDialogue("AcidAlt");
+        } 
+    }  
 }

@@ -6,11 +6,14 @@ using UnityEngine.UI;
 public class getItemPanelScript : MonoBehaviour
 {
     public GameObject prefab;
-
+    private GameObject pickUpRobot;
     public void UpdatePanel()
     {
         ClearPanel();
         PopulatePanel();
+    }
+    private void Start(){
+        pickUpRobot = GameObject.Find("PickupRobot");
     }
 
     private void ClearPanel()
@@ -55,7 +58,10 @@ public class getItemPanelScript : MonoBehaviour
                 string removed = PlayerVariables.removeFromInventory(itemName);
                 if (removed != null)
                 {
-                    GameObject pfClone = Instantiate(prefab);
+                    string newStr = itemName.Replace(" ", "");
+                    GameObject pfClone = Instantiate(Resources.Load("Items/" + newStr) as GameObject);
+                    robotMoveScript.isGrabbing = true;
+                    robotMoveScript.chosenGameObject = pfClone;
                     GameObject.Find("PickupRobot").GetComponent<canHoldItem>().pickUp(pfClone);
                     gameObject.transform.parent.gameObject.SetActive(false);
                 }

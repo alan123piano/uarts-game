@@ -1,0 +1,149 @@
+title: Acid
+tags: 
+colorID: 0
+position: 544,-123
+---
+<<if visited("Acid") is false>>
+--WARNING--
+Unknown presence detected, proceed with caution.
+[[Continue.|ahh]]
+<<else>>
+<<stop>>
+<<endif>>
+===
+title: ahh
+tags: 
+colorID: 0
+position: 546,-343
+---
+--ERROR 9201--
+Circuitry contamination from unknown source.
+--ERROR 6235--
+Mechanical malfunction.
+--WARNING--
+Exit area immediately.
+[[Ignore warning.|talk]]
+===
+title: talk
+tags: 
+colorID: 0
+position: 545,-565
+---
+--You hear a shifting sound nearby.--
+--TRANSMISSION 0007--
+Volatile organic compounds detected. Translating..
+<<wait 0.5>>
+???: Hello.
+[[??|what_the_hell]]
+===
+title: what_the_hell
+tags: 
+colorID: 0
+position: 546,-785
+---
+???: Who are you, and why are you here?
+[[AI, on a mission.|mission]]
+[[Who’s talking?|who]]
+===
+title: mission
+tags: 
+colorID: 0
+position: 325,-998
+---
+???: A mission? An AI?
+--You look around, confused.--
+[[Who’s talking?|who]]
+===
+title: who
+tags: 
+colorID: 0
+position: 769,-998
+---
+--The large pulsating plant shifts slightly.--
+Plant: Me, hello. I do not think I have met one of your kind before.
+--It shifts again.--
+Plant: You move, where are your roots?
+You: I don’t have any.
+Plant: Oh? A fascinating creature indeed.
+[[Are there more of you?|more]]
+[[What are you?|what]]
+===
+title: more
+tags: 
+colorID: 0
+position: 324,-1223
+---
+Plant: Yes, but only I am awake. Do not disturb my friends, for they are sleeping.
+You: Sleeping?
+Plant: My seed pod broke, I think something fell on it. I was released some time ago and have been slowly growing since. I do not think it was always this hard to survive..
+[[Seed pod?|seed]]
+===
+title: what
+tags: 
+colorID: 0
+position: 766,-1223
+---
+Plant: I feel that you are scared.
+[[It’s alright.|alright]]
+[[Don’t worry, I have no emotions.|alright]]
+===
+title: alright
+tags: 
+colorID: 0
+position: 763,-1446
+---
+Plant: Nevertheless I apologize, I didn’t mean to cause any fear, I just wanted to talk.
+[[Are there more of you?|more]]
+===
+title: seed
+tags: 
+colorID: 0
+position: 325,-1449
+---
+Plant: In my opinion, it was more beautiful than all the others you’ll see. Pity it broke.
+<<wait 0.5>>
+Anyway, may I ask why you are here? You seem confused by me, I do not think you are from here somehow.
+--You explain the mission.--
+<<wait 0.5>>
+--The plant says nothing for a minute.--
+<<wait 0.5>>
+Plant: The ash wasn’t always here?
+<<wait 1>>
+--The plant shakes.--
+<<wait 0.5>>
+Plant: Oh, you caused this.
+[[No, I didn’t, the humans did.|humans]]
+[[Yes, but I’m also cleaning it up.|humans]]
+===
+title: humans
+tags: 
+colorID: 0
+position: 325,-1674
+---
+Plant: It hurts, it hurts..the ash..
+--The plant shakes violently. You move away slightly in terror.--
+Plant: You are a part of this.
+<<wait 0.5>>
+--It stops shaking--
+<<wait 0.5>>
+Plant: Leave.
+[[I’m sorry, please, I have more questions!|no]]
+[[I can’t, I have to finish my mission.|no]]
+===
+title: no
+tags: 
+colorID: 0
+position: 322,-1895
+---
+--The plant stills again.--
+[[Hello?|end]]
+===
+title: end
+tags: 
+colorID: 0
+position: 756,-1897
+---
+--WARNING--
+Do not engage with potentially dangerous native plant life. Exterminate.
+<<stop>>
+===

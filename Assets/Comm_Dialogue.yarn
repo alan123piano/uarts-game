@@ -81,12 +81,23 @@ You might see ash floating in the air; the Shovel bot also has short-range vacuu
 title: Start
 tags: 
 colorID: 0
-position: 461,448
+position: 460,447
 ---
 --INITIALIZING SEQUENCE--
-<<wait 1>>
-Hello! I am the InfoLander, here to answer any questions you might have about your mission here on Caedis-2217b.
+<< wait 1>>
+<< if visited("Start") is false>> 
+--Establishing Lander Informational Correspondence--
+<< wait .5>>
+--Connecting to AI Operation Control--
+<< wait .2>>
+--INITIALIZING--
+Welcome to live machine correspondence State question about Caedis-2217b.
 [[Continue.|continue]]
+<< else>>
+--INITIALIZED--
+Welcome to live machine correspondence State question about Caedis-2217b.
+[[Continue.|continue]]
+<<endif>>
 ===
 title: story
 tags: 
@@ -122,10 +133,17 @@ position: 945,-742
 title: continue
 tags: 
 colorID: 0
-position: 460,211
+position: 459,210
 ---
 Which bot do you have questions about?
 [[The Pickup bot |pickup_bot]]
 [[The Shovel bot |shovel_bot]]
 [[Exit |close_comm]]
+===
+title: InitStart
+tags: 
+colorID: 0
+position: -354,291
+---
+Empty Text
 ===

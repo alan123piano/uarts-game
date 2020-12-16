@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7210153795383636199
+--- !u!1 &8293521771990301932
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7210153795383636198}
-  - component: {fileID: 7210153795383636201}
+  - component: {fileID: 8293521771990301933}
+  - component: {fileID: 8293521771990301922}
   m_Layer: 0
   m_Name: highlight
   m_TagString: Untagged
@@ -17,27 +17,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &7210153795383636198
+--- !u!4 &8293521771990301933
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7210153795383636199}
+  m_GameObject: {fileID: 8293521771990301932}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7210153795944001621}
+  m_Father: {fileID: 8293521772563184734}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7210153795383636201
+--- !u!212 &8293521771990301922
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7210153795383636199}
+  m_GameObject: {fileID: 8293521771990301932}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: -1486270525
   m_SortingLayer: 2
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: bfdf2f97ed0fc4ae2bdf24f7f0002c35, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fd0a52113d7aa4f28b5aabdb02b8c08c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.627451}
   m_FlipX: 0
   m_FlipY: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &7210153795944001619
+--- !u!1 &8293521772563184728
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,42 +89,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7210153795944001621}
-  - component: {fileID: 7210153795944001618}
-  - component: {fileID: 7210153795944001620}
-  - component: {fileID: 7210153795944001623}
-  - component: {fileID: 7210153795944001622}
-  - component: {fileID: 5641446169248431673}
-  - component: {fileID: 379707237511057153}
+  - component: {fileID: 8293521772563184734}
+  - component: {fileID: 8293521772563184729}
+  - component: {fileID: 8293521772563184735}
+  - component: {fileID: 8293521772563184732}
+  - component: {fileID: 8293521772563184733}
+  - component: {fileID: 6439426015314833970}
+  - component: {fileID: 1320648747097015050}
   m_Layer: 0
-  m_Name: PurpleSeed
+  m_Name: BroccSeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7210153795944001621
+--- !u!4 &8293521772563184734
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7210153795944001619}
+  m_GameObject: {fileID: 8293521772563184728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.62, y: 0.71, z: 0}
+  m_LocalPosition: {x: 0.608, y: -6.768, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7210153795383636198}
+  - {fileID: 8293521771990301933}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7210153795944001618
+--- !u!212 &8293521772563184729
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7210153795944001619}
+  m_GameObject: {fileID: 8293521772563184728}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -157,7 +157,7 @@ SpriteRenderer:
   m_SortingLayerID: -1486270525
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1078563a728724bf49f5948fd3fdcc75, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0c40e921076054d9d9f70fed2e801d3d, type: 3}
   m_Color: {r: 0.8396226, g: 0.8396226, b: 0.8396226, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -168,55 +168,55 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7210153795944001620
+--- !u!114 &8293521772563184735
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7210153795944001619}
+  m_GameObject: {fileID: 8293521772563184728}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37d92bfe6e81d436598ea16176071050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!70 &7210153795944001623
+--- !u!70 &8293521772563184732
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7210153795944001619}
+  m_GameObject: {fileID: 8293521772563184728}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.019766808, y: -0.0043338537}
-  m_Size: {x: 0.40746117, y: 0.51691914}
+  m_Offset: {x: -0.0029672831, y: -0.0075321198}
+  m_Size: {x: 0.42867967, y: 0.4408045}
   m_Direction: 0
---- !u!114 &7210153795944001622
+--- !u!114 &8293521772563184733
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7210153795944001619}
+  m_GameObject: {fileID: 8293521772563184728}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4236296f056294b3195031e37dcaa0c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlight: {fileID: 7210153795383636199}
---- !u!50 &5641446169248431673
+  highlight: {fileID: 8293521771990301932}
+--- !u!50 &6439426015314833970
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7210153795944001619}
+  m_GameObject: {fileID: 8293521772563184728}
   m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -230,16 +230,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &379707237511057153
+--- !u!114 &1320648747097015050
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7210153795944001619}
+  m_GameObject: {fileID: 8293521772563184728}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0da28dcdca4c4644b86751960e00db4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Purple Seed
+  name: Brocc Seed

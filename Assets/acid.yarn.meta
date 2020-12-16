@@ -1,0 +1,76 @@
+fileFormatVersion: 2
+guid: 42334eb751aca45c8be3b6c8650cf4b5
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
+  baseLanguageID: en-US
+  stringIDs:
+  - acid-Acid-0
+  - acid-Acid-1
+  - acid-Acid-2
+  - acid-ahh-3
+  - acid-ahh-4
+  - acid-ahh-5
+  - acid-ahh-6
+  - acid-ahh-7
+  - acid-ahh-8
+  - acid-ahh-9
+  - acid-talk-10
+  - acid-talk-11
+  - acid-talk-12
+  - acid-talk-13
+  - acid-talk-14
+  - acid-what_the_hell-15
+  - acid-what_the_hell-16
+  - acid-what_the_hell-17
+  - acid-mission-18
+  - acid-mission-19
+  - acid-mission-20
+  - acid-who-21
+  - acid-who-22
+  - acid-who-23
+  - acid-who-24
+  - acid-who-25
+  - acid-who-26
+  - acid-who-27
+  - acid-who-28
+  - acid-more-29
+  - acid-more-30
+  - acid-more-31
+  - acid-more-32
+  - acid-what-33
+  - acid-what-34
+  - acid-what-35
+  - acid-alright-36
+  - acid-alright-37
+  - acid-seed-38
+  - acid-seed-39
+  - acid-seed-40
+  - acid-seed-41
+  - acid-seed-42
+  - acid-seed-43
+  - acid-seed-44
+  - acid-seed-45
+  - acid-seed-46
+  - acid-humans-47
+  - acid-humans-48
+  - acid-humans-49
+  - acid-humans-50
+  - acid-humans-51
+  - acid-humans-52
+  - acid-humans-53
+  - acid-no-54
+  - acid-no-55
+  - acid-end-56
+  - acid-end-57
+  compilationStatus: 1
+  isSuccesfullyCompiled: 1
+  compilationErrorMessage: 
+  baseLanguage: {fileID: 7128917941130120860, guid: 42334eb751aca45c8be3b6c8650cf4b5,
+    type: 3}
+  localizations: []

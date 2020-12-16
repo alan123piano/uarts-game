@@ -7,8 +7,8 @@ public static class PlayerVariables
 {
     public static List<Task> tasks = new List<Task> {
         new Task("solar1", "Contruct solar panel", 1, true),
-        new Task("clearAreaOfDust", "Clear dust around area", 20, true),
-        new Task("collectPurpleSeed", "Puple seeds collected", 10, false),
+        new Task("clearAreaOfDust", "Clear dust around area", 5, true),
+        new Task("collectPurpleSeed", "Purple seeds collected", 10, false),
         new Task("placeBox", "Place an item collection box", 1, true),
         new Task("shelter1", "Construct plant shelter", 1, false),
         new Task("testSoil1", "Test soil samples", 5, false),
@@ -108,10 +108,5 @@ public static class PlayerVariables
     public static void sendMessage(string title, string message){
         directMessagePanel.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Text>().text = title;
         directMessagePanel.transform.GetChild(1).GetChild(0).gameObject.GetComponent<Text>().text = message;
-    }
-    
-    private static void clearMessages(){
-        directMessagePanel.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Text>().text = "";
-        directMessagePanel.transform.GetChild(1).GetChild(0).gameObject.GetComponent<Text>().text = "";
     }
 }

@@ -6,6 +6,8 @@ public class shelter1Script : MonoBehaviour
 {
     private GameObject pickupRobot;
     private GameObject itemSlot;
+
+    private GameObject energyBar;
     private GameObject popUpObject;
     private int plantOrderIndex = 1;
     private List<GameObject> plants;
@@ -14,49 +16,88 @@ public class shelter1Script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        energyBar = GameObject.Find("energyBar");
         pickupRobot = GameObject.Find("PickupRobot");
         itemSlot = GameObject.Find("itemSlot");
         popUpObject = GameObject.Find("Shelter1Popup");
     }
 
     public void AddPlant(){ //purple seed
-        if(robotMoveScript.isGrabbing && itemSlot.transform.GetChild(0).gameObject.GetComponent<itemIdentifier>().name == "Purple Seed"){
+        if(itemSlot.transform.GetChild(0).gameObject.GetComponent<itemIdentifier>().name == "Purple Seed"){
             if(gameObject.GetComponentsInChildren<Transform>().Length < maxCapacity){
-                plantOrderIndex += 1;
-                itemSlot.transform.GetChild(0).gameObject.SetActive(false);
-                GameObject plant = GameObject.Instantiate(Resources.Load("Plants/" + "purple0") as GameObject, gameObject.transform);
-                plant.GetComponent<SpriteRenderer>().sortingOrder = plantOrderIndex;
-                plant.GetComponent<plantGrowth>().growthRate = shelterGrowthRate;
+                if(energyBar.GetComponent<energyScript>().ReadEnergy() > 10){
+                    energyBar.GetComponent<energyScript>().changeEnergy(-10);
+                    plantOrderIndex += 1;
+                    Destroy(itemSlot.transform.GetChild(0).gameObject);
+                    //itemSlot.transform.GetChild(0).gameObject.SetActive(false);
+                    robotMoveScript.isGrabbing = false;
+                    robotMoveScript.chosenGameObject = null;
+                    PlayerVariables.sendMessage("System:", "Unidentified lifeforms detected in plant shelter. Remove immediately.");
+                    GameObject plant = GameObject.Instantiate(Resources.Load("Plants/" + "purple0") as GameObject, gameObject.transform);
+                    plant.GetComponent<SpriteRenderer>().sortingOrder = plantOrderIndex;
+                    plant.GetComponent<PurplePlantGrowth>().growthRate = shelterGrowthRate;
+                }
+                else{
+                    PlayerVariables.sendMessage("Shelter", "Out of Energy!");
+                }
             }
             else{
-                PlayerVariables.sendMessage("System", "This plant shelter is full!");
+                PlayerVariables.sendMessage("Plant Shelter", "This plant shelter is full!");
+            }
+        } //green seed
+        else if(itemSlot.transform.GetChild(0).gameObject.GetComponent<itemIdentifier>().name == "Green Seed"){
+            if(gameObject.GetComponentsInChildren<Transform>().Length < maxCapacity){
+                if(energyBar.GetComponent<energyScript>().ReadEnergy() > 10){
+                    energyBar.GetComponent<energyScript>().changeEnergy(-10);
+                    plantOrderIndex += 1;
+                    Destroy(itemSlot.transform.GetChild(0).gameObject);
+                    //itemSlot.transform.GetChild(0).gameObject.SetActive(false);
+                    robotMoveScript.isGrabbing = false;
+                    robotMoveScript.chosenGameObject = null;
+                    PlayerVariables.sendMessage("System:", "Unidentified lifeforms detected in plant shelter. Remove immediately.");
+                    GameObject plant = GameObject.Instantiate(Resources.Load("Plants/" + "green0") as GameObject, gameObject.transform);
+                    plant.GetComponent<SpriteRenderer>().sortingOrder = plantOrderIndex;
+                    plant.GetComponent<plantGrowth>().growthRate = shelterGrowthRate;
+                }
+                else{
+                    PlayerVariables.sendMessage("Shelter", "Out of Energy!");
+                }
+            }
+            else{
+                PlayerVariables.sendMessage("Plant Shelter", "This plant shelter is full!");
+            }
+        }
+        else if(itemSlot.transform.GetChild(0).gameObject.GetComponent<itemIdentifier>().name == "Brocc Seed"){
+            if(gameObject.GetComponentsInChildren<Transform>().Length < maxCapacity){
+                if(energyBar.GetComponent<energyScript>().ReadEnergy() > 10){
+                    energyBar.GetComponent<energyScript>().changeEnergy(-10);
+                    plantOrderIndex += 1;
+                    Destroy(itemSlot.transform.GetChild(0).gameObject);
+                    //itemSlot.transform.GetChild(0).gameObject.SetActive(false);
+                    robotMoveScript.isGrabbing = false;
+                    robotMoveScript.chosenGameObject = null;
+                    PlayerVariables.sendMessage("System:", "Unidentified lifeforms detected in plant shelter. Remove immediately.");
+                    GameObject plant = GameObject.Instantiate(Resources.Load("Plants/" + "brocc0") as GameObject, gameObject.transform);
+                    plant.GetComponent<SpriteRenderer>().sortingOrder = plantOrderIndex;
+                    plant.GetComponent<plantGrowth>().growthRate = shelterGrowthRate;
+                }
+                else{
+                    PlayerVariables.sendMessage("Shelter", "Out of Energy!");
+                }
+            }
+            else{
+                PlayerVariables.sendMessage("Plant Shelter", "This plant shelter is full!");
             }
         }
         else{
-            PlayerVariables.sendMessage("System", "You aren't holding anything!");
-        } // green seed
-        if(robotMoveScript.isGrabbing && itemSlot.transform.GetChild(0).gameObject.GetComponent<itemIdentifier>().name == "Green Seed"){
-            if(gameObject.GetComponentsInChildren<Transform>().Length < maxCapacity){
-                plantOrderIndex += 1;
-                itemSlot.transform.GetChild(0).gameObject.SetActive(false);
-                GameObject plant = GameObject.Instantiate(Resources.Load("Plants/" + "green0") as GameObject, gameObject.transform);
-                plant.GetComponent<SpriteRenderer>().sortingOrder = plantOrderIndex;
-                plant.GetComponent<plantGrowth>().growthRate = shelterGrowthRate;
-            }
-            else{
-                PlayerVariables.sendMessage("System", "This plant shelter is full!");
-            }
+            PlayerVariables.sendMessage("Plant Shelter", "You aren't holding a plant!");
         }
-        else{
-            PlayerVariables.sendMessage("System", "You aren't holding anything!");
-        }
+
     }
 
-    public void CheckGrowth(){
-        for(int i = 0; i < gameObject.GetComponentsInChildren<Transform>().Length; i++){
-            print(i);
-            PlayerVariables.sendMessage("Planter", "Plant " + i+1 + "Growth Stage: " + gameObject.transform.GetChild(i).gameObject.GetComponent<plantGrowth>().growthLevel);
-        }
+    public void Harvest(){
+        int numberOfChildren = gameObject.GetComponentsInChildren<Transform>().Length;
+        Destroy(gameObject.transform.GetChild(Random.Range(0, numberOfChildren - 1)).gameObject);
     }
     // Update is called once per frame
     private void OnMouseOver()
