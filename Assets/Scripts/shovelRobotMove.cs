@@ -15,19 +15,17 @@ public class shovelRobotMove : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer spriteRender;
     // ---- Buttons:
-    private Button enableButton;
-    private Button disableButton;
-    // Start is called before the first frame update
-    private GameObject popUpObject;
-    private RectTransform popUpRect;
+    public GameObject enableButton;
+    public GameObject disableButton;
+    // Start is called before the first fsssrame update
+    public GameObject popUpObject;
     void Start()
     {
         popUpObject = GameObject.Find("ShovelRobotPopup");
         rb = GetComponent<Rigidbody2D>();
         spriteRender = GetComponent<SpriteRenderer>();
-        enableButton = GameObject.Find("controlButton").GetComponent<Button>();
-        disableButton = GameObject.Find("stopControlButton").GetComponent<Button>();
-        popUpRect = popUpObject.GetComponent<RectTransform>();
+        //enableButton = GameObject.Find("controlButton");
+        //disableButton = GameObject.Find("stopControlButton");
         popUpObject.SetActive(false);
     }
 
@@ -36,8 +34,8 @@ public class shovelRobotMove : MonoBehaviour
     {
         if (moveActive == true)
         {
-            enableButton.interactable = false;
-            disableButton.interactable = true;
+            enableButton.GetComponent<Button>().interactable = false;
+            disableButton.GetComponent<Button>().interactable = true;
             float verticalMove = Input.GetAxisRaw("Vertical");
             float horizontalMove = Input.GetAxisRaw("Horizontal");
             Vector2 moveVectorraw = new Vector2(horizontalMove, verticalMove).normalized;
@@ -59,11 +57,9 @@ public class shovelRobotMove : MonoBehaviour
         }
         else
         {
-            enableButton.interactable = true;
-            disableButton.interactable = false;
+            enableButton.GetComponent<Button>().interactable = true;
+            disableButton.GetComponent<Button>().interactable = false;
         }
-        
-
     }
 
     public void activate(bool value)
@@ -112,11 +108,11 @@ public class shovelRobotMove : MonoBehaviour
             popUpObject.SetActive(true);
             if (Input.mousePosition.x > Screen.width / 2)
             {
-                popUpRect.position = new Vector2(Input.mousePosition.x - 200, Input.mousePosition.y);
+                popUpObject.GetComponent<RectTransform>().position = new Vector2(Input.mousePosition.x - 200, Input.mousePosition.y);
             }
             else if (Input.mousePosition.x < Screen.width / 2)
             {
-                popUpRect.position = new Vector2(Input.mousePosition.x + 200, Input.mousePosition.y);
+                popUpObject.GetComponent<RectTransform>().position = new Vector2(Input.mousePosition.x + 200, Input.mousePosition.y);
             }
 
         }

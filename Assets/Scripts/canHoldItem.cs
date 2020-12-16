@@ -28,6 +28,6 @@ public class canHoldItem : MonoBehaviour
         Vector3 savePos = item.transform.position;
         item.transform.parent = null;
         item.transform.position = savePos + .3f * Vector3.down;
-        item.transform.rotation = Quaternion.Euler(0, 0, -320);
+        item.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 }

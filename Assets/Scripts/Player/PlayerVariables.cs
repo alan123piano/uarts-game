@@ -7,22 +7,23 @@ public static class PlayerVariables
 {
     public static List<Task> tasks = new List<Task> {
         new Task("solar1", "Contruct solar panel", 1, true),
-        new Task("clearAreaOfDust", "Clear dust around area", 5, true),
+        new Task("clearAreaOfDust", "Clear dust around area", 20, true),
         new Task("collectPurpleSeed", "Purple seeds collected", 10, false),
         new Task("placeBox", "Place an item collection box", 1, true),
         new Task("shelter1", "Construct plant shelter", 1, false),
         new Task("testSoil1", "Test soil samples", 5, false),
-        new Task("shelter2", "Place upgraded plant greenhouse", 1, false),
-        new Task("shovelBot", "Deploy dust shoveling Bot", 1, false)
+        new Task("shelter2", "Place upgraded plant greenhouse", 1, false)
     };
     public static List<string> inventory = new List<string>();
 
     public static double atmosphereContamination = 100;
     private static GameObject directMessagePanel;
-
+    
+    public static AudioClip messageSound;
     public static void DeclareVars()
     {
         directMessagePanel = GameObject.Find("directMessagePanel");
+        messageSound = Resources.Load("RobotTransmission") as AudioClip;
     }
     public static Task getTaskByName(string name)
     {
@@ -106,6 +107,7 @@ public static class PlayerVariables
     }
 
     public static void sendMessage(string title, string message){
+        AudioSource.PlayClipAtPoint(PlayerVariables.messageSound, Vector3.zero);
         directMessagePanel.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Text>().text = title;
         directMessagePanel.transform.GetChild(1).GetChild(0).gameObject.GetComponent<Text>().text = message;
     }

@@ -8,6 +8,9 @@ public class robotMoveScript : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer spriteRender;
     private Camera cam;
+
+    public AudioClip pickupSound;
+    public AudioClip movingSound;
     public GameObject highlight;
     public GameObject selectItemPopUp;
     private RectTransform selectItemPopUpRect;
@@ -45,7 +48,6 @@ public class robotMoveScript : MonoBehaviour
 
     void Update()
     {
-        print("Grabbing = " + isGrabbing);
         if(isMovingToPosition){
             rb.position = Vector2.SmoothDamp(rb.position, wantedPosition, ref speed, .2f, 3);
         }
@@ -76,15 +78,18 @@ public class robotMoveScript : MonoBehaviour
     {
         isSeekingPosition = true;
         popUpObject.SetActive(false);
+        AudioSource.PlayClipAtPoint(movingSound, Vector3.zero);
     }
 
     private void grab(GameObject obj)
     {
+        AudioSource.PlayClipAtPoint(pickupSound, Vector3.zero);
         GetComponent<canHoldItem>().pickUp(obj);
     }
 
     public void Drop()
     {
+        AudioSource.PlayClipAtPoint(pickupSound, Vector3.zero);
         isMovingToPosition = false;
         GetComponent<canHoldItem>().drop(chosenGameObject);
     }
@@ -93,7 +98,7 @@ public class robotMoveScript : MonoBehaviour
             StartCoroutine(CheckingDirt());
         }
         else{
-            PlayerVariables.sendMessage("System", "You already have some dirt!");
+            PlayerVariables.sendMessage("System", "Inventory does not include a dirt checker!");
         }
     }
 
@@ -103,6 +108,7 @@ public class robotMoveScript : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(.3f, 1.2f));
         }
         PlayerVariables.sendMessage("System", "[COMPLETE] Contamination Level: " + PlayerVariables.atmosphereContamination + "%");
+        PlayerVariables.addTaskProgress("testSoil1", 1);
         isGrabbing = false;
     }
 
@@ -121,17 +127,24 @@ public class robotMoveScript : MonoBehaviour
                     Destroy(itemSlot.transform.GetChild(0).gameObject);
                     robotMoveScript.chosenGameObject = null;
                     robotMoveScript.isGrabbing = false;
-                    if(Random.Range(0, 1) == 0){
+                    if(Random.Range(0, 2) == 0){
                         GameObject.Instantiate(Resources.Load("Plants/tendril0") as GameObject, savePos + (0.3f * Vector3.down), Quaternion.Euler(0,0,0));
                     }
                     else{
                         GameObject.Instantiate(Resources.Load("Plants/snake0") as GameObject, savePos + (0.3f * Vector3.down), Quaternion.Euler(0,0,0));
                     }
                 }
+                if(itemSlot.transform.GetChild(0).gameObject.GetComponent<itemIdentifier>().name == "Grass Seed"){
+                    Vector3 savePos = itemSlot.transform.GetChild(0).position;
+                    Destroy(itemSlot.transform.GetChild(0).gameObject);
+                    robotMoveScript.chosenGameObject = null;
+                    robotMoveScript.isGrabbing = false;
+                    GameObject.Instantiate(Resources.Load("Plants/grass0") as GameObject, savePos + (0.3f * Vector3.down), Quaternion.Euler(0,0,0));
+                }
                 
             }
             else{
-                PlayerVariables.sendMessage("Robot:", "Not currently holding a seed");
+                PlayerVariables.sendMessage("Robot:", "Not currently holding an outdoor plantable seed");
             }
         }
         else{

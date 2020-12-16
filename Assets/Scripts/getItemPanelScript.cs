@@ -58,12 +58,17 @@ public class getItemPanelScript : MonoBehaviour
                 string removed = PlayerVariables.removeFromInventory(itemName);
                 if (removed != null)
                 {
-                    string newStr = itemName.Replace(" ", "");
-                    GameObject pfClone = Instantiate(Resources.Load("Items/" + newStr) as GameObject);
-                    robotMoveScript.isGrabbing = true;
-                    robotMoveScript.chosenGameObject = pfClone;
-                    GameObject.Find("PickupRobot").GetComponent<canHoldItem>().pickUp(pfClone);
-                    gameObject.transform.parent.gameObject.SetActive(false);
+                    if(robotMoveScript.isGrabbing == false){
+                        string newStr = itemName.Replace(" ", "");
+                        GameObject pfClone = Instantiate(Resources.Load("Items/" + newStr) as GameObject);
+                        robotMoveScript.isGrabbing = true;
+                        robotMoveScript.chosenGameObject = pfClone;
+                        GameObject.Find("PickupRobot").GetComponent<canHoldItem>().pickUp(pfClone);
+                        gameObject.transform.parent.gameObject.SetActive(false);
+                    }
+                    else{
+                        PlayerVariables.sendMessage("Robot:", "Already have something in hand!");
+                    }
                 }
             });
         }   

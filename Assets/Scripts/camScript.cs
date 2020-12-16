@@ -6,7 +6,7 @@ public class camScript : MonoBehaviour
 {
     public GameObject followGameObject;
     private Vector3 targetPosition;
-    private int[,] camBounds = { { -4, 48 }, { -5, 38 } }; // low x, high x, low y, high y
+    private int[,] camBounds = { { -2, 48 }, { -5, 38 } }; // low x, high x, low y, high y
 
     private void Start()
     {
@@ -14,10 +14,12 @@ public class camScript : MonoBehaviour
     // Start is called before the first frame update
 
     // Update is called once per frame
+    
+    
     void Update()
     {
         transform.position = Vector3.Lerp(transform.position, targetPosition, 4 * Time.deltaTime);
-        if (shovelRobotMove.moveActive)
+        if (followGameObject != null && shovelRobotMove.moveActive)
         {
             targetPosition = new Vector3(followGameObject.transform.position.x, followGameObject.transform.position.y, -1);
         }

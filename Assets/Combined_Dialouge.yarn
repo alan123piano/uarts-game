@@ -81,15 +81,12 @@ You might see ash floating in the air; the Shovel bot also has short-range vacuu
 title: Start
 tags: 
 colorID: 0
-position: 245,594
+position: 431,632
 ---
 --INITIALIZING SEQUENCE--
 << wait 1>>
-<< if visited ("Start") is true>>
 Already Visited
-<< else>>
 First Time visiting
-<< endif>> 
 --Establishing Lander Informational Correspondence--
 << wait .5>>
 --Connecting to AI Operation Control--
@@ -210,20 +207,14 @@ tags:
 colorID: 0
 position: -82,-565
 ---
-<<if visited("Acid") is false>>
 --WARNING--
 Unknown presence detected, proceed with caution.
 [[Continue.|ahh]]
-<<else>>
---TRANSMISSION 0007--
-Volatile organic compounds detected. Translating..
-<< wait .1>> 
-<<endif>>
 ===
 title: ahh
 tags: 
 colorID: 0
-position: 214,-708
+position: 285,-715
 ---
 --ERROR 9201--
 Circuitry contamination from unknown source.
@@ -373,13 +364,27 @@ position: 1116,-1719
 Plant: I need to spread the seeds of my fellow species, but I am too weak to move. The seeds can be found in the rocks.
 [[ Weak?|humans]]
 ===
-title: Warning1
+title: StartAlt
 tags: 
 colorID: 0
-position: -203,434
+position: 190,371
 ---
-Central Control: Unidentified lifeforms detected in plant shelter. Remove immediately.
---Log.0025 Recorded--
-<< wait 1>>
-<< stop>>
+--Connecting to AI Operation Control--
+<< wait .2>>
+--INITIALIZING--
+Welcome to live machine correspondence State question about Caedis-2217b.
+[[Continue.|continue]]
+===
+title: AcidAlt
+tags: 
+colorID: 0
+position: -443,-989
+---
+--TRANSMISSION 0007--
+Volatile organic compounds detected. Translating..
+<< wait .1>>
+--You hear a shifting sound nearby.--
+<< wait .4>>
+--Organic Connection Established--
+[[Engage|what]]
 ===

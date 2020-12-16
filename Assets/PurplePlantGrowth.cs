@@ -27,8 +27,7 @@ public class PurplePlantGrowth : MonoBehaviour
                     growthLevel -= 1;
                 }
                 if (growthLevel == sprites.Count - 1){
-                    GameObject.Instantiate(Resources.Load("Purple Seed") as GameObject, new Vector3(gameObject.transform.position.x - .2f, gameObject.transform.position.y - Random.Range(.7f, 1.2f), 0f), Quaternion.Euler(0, 0, Random.Range(0, 359)));
-                    GameObject.Instantiate(Resources.Load("Purple Seed") as GameObject, new Vector3(gameObject.transform.position.x + .2f, gameObject.transform.position.y - Random.Range(.7f, 1.2f), 0f), Quaternion.Euler(0, 0, Random.Range(0, 359)));
+                    GameObject.Instantiate(Resources.Load("Items/StrongPurpleSeed") as GameObject, new Vector3(gameObject.transform.position.x - .2f, gameObject.transform.position.y - Random.Range(.7f, 1.2f), 0f), Quaternion.Euler(0, 0, Random.Range(0, 359)));
                 }
             }
             yield return new WaitForSeconds(Random.Range(growthModifier * growthRate - 5, growthModifier * growthRate + 5));

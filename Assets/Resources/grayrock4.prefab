@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 909078074342726389}
   - component: {fileID: -799123480111298464}
   - component: {fileID: -4766996103486758301}
+  - component: {fileID: 2286093606143081862}
+  - component: {fileID: -4784800531942637935}
   m_Layer: 0
   m_Name: grayrock4
   m_TagString: Untagged
@@ -96,9 +98,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.13426244}
+  m_Offset: {x: -0.05755633, y: 0.0018826723}
   serializedVersion: 2
-  m_Radius: 0.6657375
+  m_Radius: 0.47580135
 --- !u!114 &-4766996103486758301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,3 +114,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Metal Rock
+--- !u!114 &2286093606143081862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8779269910997128905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37d92bfe6e81d436598ea16176071050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &-4784800531942637935
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8779269910997128905}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

@@ -15,22 +15,4 @@ public class Shelter1Button : MonoBehaviour
             GameObject.Find("Lv1 Shelter").GetComponent<shelter1Script>().Harvest();
         }
     }
-    //GameObject shelter;
-    // Start is called before the first frame update
-    /**void Start()
-    {
-        Button thisButton = gameObject.GetComponent<Button>();
-        shelter = GameObject.Find("Lv1 Shelter");
-        thisButton.clicked.AddListener(shelter.GetComponent<shelter1Script>().AddPlant);
-        print("started the listener");
-    }**/
-    
-    /**void Update(){
-        Button thisButton = gameObject.GetComponent<Button>();
-        shelter = GameObject.Find("Lv1 Shelter");
-        if (thisButton.clicked){
-            shelter.GetComponent<shelter1Script>().AddPlant();
-        }
-    }**/
-
 }

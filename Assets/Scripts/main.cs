@@ -12,9 +12,6 @@ public class main : MonoBehaviour
         StartCoroutine(FindContamination());
     }
 
-    private void Update(){
-        print(Random.Range(0, 3));
-    }
     // Update is called once per frame
 
     IEnumerator FindContamination(){ //this is an Couroutine because the load of counting all the dust every frame is too much

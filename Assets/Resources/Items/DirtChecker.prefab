@@ -11,8 +11,11 @@ GameObject:
   - component: {fileID: 8126180900552495906}
   - component: {fileID: 8126180900552495907}
   - component: {fileID: 8126180900552495904}
+  - component: {fileID: 6442071854519166490}
+  - component: {fileID: 5865608670189373455}
+  - component: {fileID: -6075569482062568280}
   m_Layer: 0
-  m_Name: dirtChecker
+  m_Name: DirtChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1486270525
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: fb1381702d4e94eb1899e1148526ec25, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -94,3 +97,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37d92bfe6e81d436598ea16176071050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!70 &6442071854519166490
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8126180900552495905}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.005997805, y: -0.18468073}
+  m_Size: {x: 0.73380214, y: 1.068733}
+  m_Direction: 0
+--- !u!50 &5865608670189373455
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8126180900552495905}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &-6075569482062568280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8126180900552495905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0da28dcdca4c4644b86751960e00db4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Dirt Checker

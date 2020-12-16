@@ -12,7 +12,7 @@ public class shelter1Script : MonoBehaviour
     private int plantOrderIndex = 1;
     private List<GameObject> plants;
     public int shelterGrowthRate = 35;
-    public int maxCapacity = 6;
+    public int maxCapacity = 7;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,7 +54,7 @@ public class shelter1Script : MonoBehaviour
                     //itemSlot.transform.GetChild(0).gameObject.SetActive(false);
                     robotMoveScript.isGrabbing = false;
                     robotMoveScript.chosenGameObject = null;
-                    PlayerVariables.sendMessage("System:", "Unidentified lifeforms detected in plant shelter. Remove immediately.");
+                    PlayerVariables.sendMessage("System:", "Lifeform detected in plant shelter. Attemping to Grow");
                     GameObject plant = GameObject.Instantiate(Resources.Load("Plants/" + "green0") as GameObject, gameObject.transform);
                     plant.GetComponent<SpriteRenderer>().sortingOrder = plantOrderIndex;
                     plant.GetComponent<plantGrowth>().growthRate = shelterGrowthRate;
@@ -76,7 +76,7 @@ public class shelter1Script : MonoBehaviour
                     //itemSlot.transform.GetChild(0).gameObject.SetActive(false);
                     robotMoveScript.isGrabbing = false;
                     robotMoveScript.chosenGameObject = null;
-                    PlayerVariables.sendMessage("System:", "Unidentified lifeforms detected in plant shelter. Remove immediately.");
+                    PlayerVariables.sendMessage("System:", "Ohhhh yeaaaa, broccoli DETECTED");
                     GameObject plant = GameObject.Instantiate(Resources.Load("Plants/" + "brocc0") as GameObject, gameObject.transform);
                     plant.GetComponent<SpriteRenderer>().sortingOrder = plantOrderIndex;
                     plant.GetComponent<plantGrowth>().growthRate = shelterGrowthRate;

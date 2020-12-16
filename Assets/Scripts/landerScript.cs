@@ -7,28 +7,28 @@ public class landerScript : MonoBehaviour
 {
     public GameObject mainframe;
     public DialogueRunner dialoguerunner;
-
+    public GameObject shovelBot;
     bool initDialougeDone = false;
-    int dialougeVisitedTracker = 0;
+    bool dialougeVisitedTracker = false;
     private int currentTaskSet = 0;
     private List<List<string>> taskSets = new List<List<string>>{
         new List<string>(){"solar1", "clearAreaOfDust", "placeBox"},
         new List<string>(){"shelter1", "testSoil1"},
-        new List<string>(){"shovelBot"}
+        new List<string>(){"shelter2"}
     };
 
     private void Start()
     {
+        
         PlayerVariables.addToInventory("Solar Panel");
         PlayerVariables.addToInventory("Storage Box");
-        PlayerVariables.addToInventory("Purple Seed");
-        PlayerVariables.addToInventory("Green Seed");
-        PlayerVariables.addToInventory("Brocc Seed");
-        PlayerVariables.addToInventory("Dirt Checker");
     }
 
     // Start is called before the first frame update
 
+    private void importBot(){
+        shovelBot.transform.position = Vector3.zero;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (currentTaskSet >= taskSets.Count)
@@ -70,7 +70,10 @@ public class landerScript : MonoBehaviour
     private void GiveCorrespondingItemToTask(Task task){
         if (task.name == "shelter1"){
             PlayerVariables.addToInventory("Lv1 Shelter");
-            PlayerVariables.addToInventory("Dirt Checker");
+            PlayerVariables.addToInventory("Green Seed");
+            PlayerVariables.addToInventory("Green Seed");
+            PlayerVariables.addToInventory("Green Seed");
+            PlayerVariables.addToInventory("Green Seed");
         }
         if (task.name == "testSoil1"){
             PlayerVariables.addToInventory("Dirt Checker");
@@ -80,6 +83,12 @@ public class landerScript : MonoBehaviour
         }
         if (task.name == "shelter2"){
             PlayerVariables.addToInventory("Lv2 Greenhouse");
+            PlayerVariables.addToInventory("Brocc Seed");
+            PlayerVariables.addToInventory("Brocc Seed");
+            PlayerVariables.addToInventory("Brocc Seed");
+            PlayerVariables.addToInventory("Brocc Seed");
+            PlayerVariables.addToInventory("Green Seed");
+            importBot();
         }
     }
 
@@ -91,9 +100,9 @@ public class landerScript : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            if (dialougeVisitedTracker == 0){
+            if (dialougeVisitedTracker == false){
                 dialoguerunner.StartDialogue("Start");
-                dialougeVisitedTracker += 1;
+                dialougeVisitedTracker = true;
             }
             else{
                 dialoguerunner.StartDialogue("StartAlt");
